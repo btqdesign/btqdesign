@@ -25,5 +25,5 @@ if ( current_user_can( 'read' ) && isset( $_POST['code'] ) ) {
 	
 	echo $out;
 	
-	wp_die();
+	//wp_die();
 }
