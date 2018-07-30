@@ -296,16 +296,21 @@ class BTQ_WP_Login {
 						var that = this;
 						var out = false;
 						var prompt_code = prompt(text);
-						var posting = $.post( '<?php echo plugin_dir_url( __FILE__ ).'btq-wp-login-ga-validate.php'; ?>', { code: prompt_code } )
-						.done(function( data ) {
-							if( data == 1) {
-								that.out = true;
-							}
-						})
-						.fail(function() {
-							alert( '<?php _e('Error validating the code', 'btq-wp-login')?>' );
-						});
-						return out;
+						if (prompt_code === null) {
+							return;
+						}
+						else {
+							var posting = $.post( '<?php echo plugin_dir_url( __FILE__ ).'btq-wp-login-ga-validate.php'; ?>', { code: prompt_code } )
+							.done(function( data ) {
+								if( data == 1) {
+									that.out = true;
+								}
+							})
+							.fail(function() {
+								alert( '<?php _e('Error validating the code', 'btq-wp-login')?>' );
+							});
+							return out;
+						}
 					}
 					
 					// Cuando da click al boton "Actualizar Perfil"
