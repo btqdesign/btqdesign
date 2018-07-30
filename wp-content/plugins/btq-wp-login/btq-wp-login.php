@@ -324,6 +324,8 @@ class BTQ_WP_Login {
 			// Elimina el archivo temporal de la imagen con el codigo QR
 			unlink($ga_qr_png);
 		}
+		
+		wp_die();
 	}
 	// add_action( 'wp_ajax_btq_wp_login_ga', 'btq_wp_login_ga_ajax' );
 	
@@ -346,6 +348,8 @@ class BTQ_WP_Login {
 			
 			echo $out;
 		}
+		
+		wp_die();
 	}
 	// add_action( 'wp_ajax_btq_wp_login_ga_validate', 'btq_wp_login_ga_validate_ajax' );
 	
