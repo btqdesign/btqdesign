@@ -23,11 +23,6 @@ class BTQ_WP_Login {
 		return $this;
 	}
 	
-	/** ViewPort para dispositivos moviles **/
-	public function btq_wp_login_head_meta() {
-		echo '<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">'."\n";
-	}
-	
 	// Valida que NO! sea un correo electrónico al iniciar la sesion por /wp-login.php
 	public function btq_wp_login_noemail( $user ) {
 		// Si proviene de /wp-login.php
@@ -410,8 +405,6 @@ class BTQ_WP_Login {
 } // class BTQ_WP_Login
 
 $BTQ_WP_Login = new BTQ_WP_Login();
-
-//add_action('login_head',			array($BTQ_WP_Login,'btq_wp_login_head_meta'), 30 );
 
 add_filter('wp_authenticate_user',	array($BTQ_WP_Login,'btq_wp_login_noemail') );
 
