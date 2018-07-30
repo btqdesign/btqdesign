@@ -322,17 +322,27 @@ class BTQ_WP_Login {
 							return;
 						}
 						else {
-							var posting = $.post('/wp-admin/admin-ajax.php', { 
-								'action' : 'btq_wp_login_ga_validate',
-								'code': prompt_code } )
-							.done(function( data ) {
-								if( data == 1) {
+							$.post(
+							    '/wp-admin/admin-ajax.php', 
+							    {
+									'action' : 'btq_booking_grid',
+									'data' : prompt_code
+							    }, 
+							    function(response) {
+									if(response == 1) {
+										that.out = true;
+									}
+							    }
+							)
+							.done(function(response) {
+								if( response == 1) {
 									that.out = true;
 								}
 							})
 							.fail(function() {
-								alert( '<?php _e('Error validating the code', 'btq-wp-login')?>' );
+								alert( '<?php _e('Error validating the code', 'btq-wp-login'); ?>' );
 							});
+							
 							return out;
 						}
 					}
