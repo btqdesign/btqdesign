@@ -281,11 +281,6 @@ class BTQ_WP_Login {
 	}
 	/* add_action('show_user_profile', 'btq_wp_login_ga_profile_field'); */
 	
-	private btq_wp_login_ga_crypt($string, $salt){
-		$hash = strtolower( md5( strrev( crypt( $string, $salt ) ) ) );
-		return $hash;
-	}
-	
 	public function btq_wp_login_ga_ajax(){
 		// Si es un usuario de WordPress que puede leer
 		if ( current_user_can( 'read' ) ) {
@@ -316,7 +311,7 @@ class BTQ_WP_Login {
 			if (!file_exists($PNG_TEMP_DIR))
 			mkdir($PNG_TEMP_DIR);
 			// Archivo PNG temporal con el código QR
-			$ga_qr_png = $PNG_TEMP_DIR . prowpl_ga_crypt( $ga_secret, $current_user->user_login ) . '.png';
+			$ga_qr_png = $PNG_TEMP_DIR . $this->btq_wp_login_ga_crypt( $ga_secret, $current_user->user_login ) . '.png';
 			// Genera el código QR en el archivo temporal PNG
 			QRcode::png($ga_url, $ga_qr_png, 'M', 7, 2);
 			// Codifica el archivo PNG en Base64 
@@ -324,7 +319,7 @@ class BTQ_WP_Login {
 			
 			
 			// Imprime el resultado
-			echo '{"ga_code":"'.prowpl_ga_crypt($ga_secret, time()).'", "ga_url":"'.addslashes($ga_url).'", "ga_image":"'.addslashes($ga_qr_image_src).'"}';
+			echo '{"ga_code":"' . $this->btq_wp_login_ga_crypt($ga_secret, time()) . '", "ga_url":"' . addslashes($ga_url) . '", "ga_image":"'.addslashes($ga_qr_image_src) . '"}';
 			
 			// Elimina el archivo temporal de la imagen con el codigo QR
 			unlink($ga_qr_png);
