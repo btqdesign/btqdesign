@@ -3,20 +3,6 @@
 // Establece el tipo de archivo como texto plano
 header("Content-Type:text/plain");
 
- // Enforce the use of HTTPS
-//header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
-// Prevent Clickjacking
-header("X-Frame-Options: SAMEORIGIN");
-// Prevent XSS Attack
-header("Content-Security-Policy: default-src 'self';"); // FF 23+ Chrome 25+ Safari 7+ Opera 19+
-header("X-Content-Security-Policy: default-src 'self';"); // IE 10+
-// Block Access If XSS Attack Is Suspected
-header("X-XSS-Protection: 1; mode=block");
-// Prevent MIME-Type Sniffing
-header("X-Content-Type-Options: nosniff");
-// Referrer Policy
-header("Referrer-Policy: no-referrer-when-downgrade");
-
 // Obtiene la configuracion de WordPress
 require_once('../../../wp-config.php');
 
