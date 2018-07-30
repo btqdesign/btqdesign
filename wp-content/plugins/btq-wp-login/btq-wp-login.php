@@ -371,6 +371,7 @@ class BTQ_WP_Login {
 						var that = this;
 						var prompt_code = prompt(text);
 						if (prompt_code === null) {
+							console.log('prompt_code null');
 							return;
 						}
 						else {
