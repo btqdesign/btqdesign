@@ -330,6 +330,8 @@ class BTQ_WP_Login {
 	// add_action( 'wp_ajax_btq_wp_login_ga', 'btq_wp_login_ga_ajax' );
 	
 	public function btq_wp_login_ga_validate_ajax(){
+		$isValidOut = 0;
+		
 		if(isset($_POST['code'])){
 			$code = $_POST['code'];
 			
@@ -344,10 +346,10 @@ class BTQ_WP_Login {
 			$ga = new PHPGangsta_GoogleAuthenticator();
 			$is_valid = $ga->verifyCode($ga_secret, $code);
 			
-			$out = $is_valid ? '1' : '0';
-			
-			echo $out;
+			$isValidOut = $is_valid ? '1' : '0';
 		}
+		
+		echo '{"isvalid":'.$isValidOut.'}';
 		
 		wp_die();
 	}
@@ -365,8 +367,8 @@ class BTQ_WP_Login {
 				jQuery(document).ready(function($) {
 				
 					function btq_wp_login_ga_prompt(text) {
-						var that = this;
 						var out = false;
+						var that = this;
 						var prompt_code = prompt(text);
 						if (prompt_code === null) {
 							return;
@@ -379,10 +381,14 @@ class BTQ_WP_Login {
 									"data"   : prompt_code
 							    }, 
 							    function(response) {
-									if(response == 1) {
+									if(response.isvalid == 1) {
 										that.out = true;
 									}
-							    }
+									else{
+										that.out = false;
+									}
+							    },, 
+								"json"
 							)
 							.done(function(response) {
 								//if( response == 1) {
@@ -394,7 +400,7 @@ class BTQ_WP_Login {
 								alert( '<?php _e('Error validating the code', 'btq-wp-login'); ?>' );
 							});
 							
-							return out;
+							return that.out;
 						}
 					}
 					
