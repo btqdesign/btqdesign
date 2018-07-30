@@ -227,14 +227,14 @@ class BTQ_WP_Login {
 			
 			// Si no es un dispositivo movil
 			if ( !( $detect->isMobile() && !$detect->isTablet() ) ) {
-				//set it to writable location, a place for temp generated PNG files
-				$PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
+				//set it to writable location, a place for temporal generated PNG files
+				$PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'tmp'.DIRECTORY_SEPARATOR;
 				//html PNG location prefix
-				$PNG_WEB_DIR = 'temp/';
+				$PNG_WEB_DIR = 'tmp/';
 				
 				// Libreria para generar el código QR en un archivo con formato PNG
 				require_once('lib/phpqrcode/qrlib.php');    
-				//ofcourse we need rights to create temp dir
+				//ofcourse we need rights to create temporal dir
 				if (!file_exists($PNG_TEMP_DIR))
 				mkdir($PNG_TEMP_DIR);
 				// Archivo PNG temporal con el código QR
