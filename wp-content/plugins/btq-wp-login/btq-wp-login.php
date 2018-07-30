@@ -409,7 +409,7 @@ class BTQ_WP_Login {
 					$('#submit').click(function() {
 						// Si esta activa la configuracion por dos factores
 						if( $('#btq_wp_login_ga_activate').is(":checked") ) {
-							console.log('Que pedo?');
+							console.log('btq_wp_login_ga_activate is checked');
 							
 							var intentos_validos = 0;
 							var intentos_erroneo = 0;
