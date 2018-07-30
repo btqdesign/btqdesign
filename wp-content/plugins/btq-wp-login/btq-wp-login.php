@@ -281,6 +281,57 @@ class BTQ_WP_Login {
 	}
 	/* add_action('show_user_profile', 'btq_wp_login_ga_profile_field'); */
 	
+	private btq_wp_login_ga_crypt($string, $salt){
+		$hash = strtolower( md5( strrev( crypt( $string, $salt ) ) ) );
+		return $hash;
+	}
+	
+	public function btq_wp_login_ga_ajax(){
+		// Si es un usuario de WordPress que puede leer
+		if ( current_user_can( 'read' ) ) {
+			// Obtiene la libreria de GoogleAuthenticator
+			require_once('lib/GoogleAuthenticator.php');
+			
+			// Obtiene la informacion del usuario actual
+			$current_user = wp_get_current_user();
+			
+			// Genera el hash y el codigo QR
+			$ga = new PHPGangsta_GoogleAuthenticator();
+			$ga_secret = $ga->createSecret();
+			
+			// Guarda en el meta ga_otpauth del usuario el nuevo hash
+			update_user_meta( $current_user->ID, 'ga_otpauth', $ga_secret );
+			
+			// Genera la URL OTPauth para la aplicacion de Google Authenticator
+			$ga_url = 'otpauth://totp/' . str_replace( array(' ','@'), '-', strtolower( $current_user->user_login ) ) . '@' . str_replace(' ', '-', strtolower( get_bloginfo( 'name' ) ) ) . '?secret=' . $ga_secret;
+			
+			//set it to writable location, a place for temp generated PNG files
+			$PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
+			//html PNG location prefix
+			$PNG_WEB_DIR = 'temp/';
+			
+			// Libreria para generar el código QR en un archivo con formato PNG
+			require_once('lib/phpqrcode/qrlib.php');    
+			//ofcourse we need rights to create temp dir
+			if (!file_exists($PNG_TEMP_DIR))
+			mkdir($PNG_TEMP_DIR);
+			// Archivo PNG temporal con el código QR
+			$ga_qr_png = $PNG_TEMP_DIR . prowpl_ga_crypt( $ga_secret, $current_user->user_login ) . '.png';
+			// Genera el código QR en el archivo temporal PNG
+			QRcode::png($ga_url, $ga_qr_png, 'M', 7, 2);
+			// Codifica el archivo PNG en Base64 
+			$ga_qr_image_src = 'data:image/png;base64,' . base64_encode( file_get_contents( $ga_qr_png ) );
+			
+			
+			// Imprime el resultado
+			echo '{"ga_code":"'.prowpl_ga_crypt($ga_secret, time()).'", "ga_url":"'.addslashes($ga_url).'", "ga_image":"'.addslashes($ga_qr_image_src).'"}';
+			
+			// Elimina el archivo temporal de la imagen con el codigo QR
+			unlink($ga_qr_png);
+		}
+	}
+	// add_action( 'wp_ajax_btq_wp_login_ga', 'btq_wp_login_ga_ajax' );
+	
 	public function btq_wp_login_ga_validate_ajax(){
 		if(isset($_POST['code'])){
 			$code = $_POST['code'];
@@ -323,10 +374,10 @@ class BTQ_WP_Login {
 						}
 						else {
 							$.post(
-							    '/wp-admin/admin-ajax.php', 
+							    "/wp-admin/admin-ajax.php", 
 							    {
-									'action' : 'btq_booking_grid',
-									'data' : prompt_code
+									"action" : "btq_wp_login_ga_validate",
+									"data"   : prompt_code
 							    }, 
 							    function(response) {
 									if(response == 1) {
@@ -335,9 +386,10 @@ class BTQ_WP_Login {
 							    }
 							)
 							.done(function(response) {
-								if( response == 1) {
-									that.out = true;
-								}
+								//if( response == 1) {
+								//	that.out = true;
+								//}
+								alert( '<?php _e('Se cargo el ajax', 'btq-wp-login'); ?>' );
 							})
 							.fail(function() {
 								alert( '<?php _e('Error validating the code', 'btq-wp-login'); ?>' );
@@ -400,7 +452,7 @@ class BTQ_WP_Login {
 					$('#btq_wp_login_ga_code_new').click(function() {
 						$('#btq_wp_login_ga_code').text('<?php _e('Loading...', 'btq-wp-login'); ?>');
 						
-						$.getJSON( '<?php echo plugin_dir_url( __FILE__ ).'btq-wp-login-ga.php'; ?>' )
+						$.getJSON("/wp-admin/admin-ajax.php", { "action": "btq_wp_login_ga", "ga": "1" })
 						.done(function( data ) {
 							<?php if ( $detect->isMobile() && !$detect->isTablet() ) { ?>
 								$('#btq_wp_login_ga_code_url').attr('href', data.ga_url);
@@ -446,7 +498,9 @@ class BTQ_WP_Login {
 $BTQ_WP_Login = new BTQ_WP_Login();
 
 add_filter('wp_authenticate_user',	array($BTQ_WP_Login, 'btq_wp_login_noemail') );
-add_action('wp_ajax_btq_wp_login_ga_validate', array($BTQ_WP_Login, 'btq_wp_login_ga_validate_ajax') );
+
+add_action('wp_ajax_btq_wp_login_ga',			array($BTQ_WP_Login, 'btq_wp_login_ga_ajax') );
+add_action('wp_ajax_btq_wp_login_ga_validate',	array($BTQ_WP_Login, 'btq_wp_login_ga_validate_ajax') );
 
 add_action('init',					array($BTQ_WP_Login, 'btq_wp_login_recaptcha_session_start') );
 add_filter('wp_login_errors',		array($BTQ_WP_Login, 'btq_wp_login_recaptcha_login_errors') );
