@@ -264,10 +264,10 @@ class BTQ_WP_Login {
 					<?php } ?>
 					<td>
 						<?php if ( $detect->isMobile() && !$detect->isTablet() ) { ?>
-						<p><?php _e('The <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a> app must have in this device.', 'btq-wp-login')?></p>
-						<p><?php _e('If you have the Google Authenticator app in this device, please touch on the button:', 'btq-wp-login')?><br/><a class="button button-secondary" id="btq_wp_login_ga_code_url" href="<?php echo $ga_url; ?>"><?php _e('Register two factors authentication in this device.', 'btq-wp-login'); ?></a></p>
+						<p><?php _e('The <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a> app must have in this device.', 'btq-wp-login'); ?></p>
+						<p><?php _e('If you have the Google Authenticator app in this device, please touch on the button:', 'btq-wp-login'); ?><br/><a class="button button-secondary" id="btq_wp_login_ga_code_url" href="<?php echo $ga_url; ?>"><?php _e('Register two factors authentication in this device.', 'btq-wp-login'); ?></a></p>
 						<?php } else { ?>
-						<p><?php _e('Scan the QR code with your mobile from <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a> app.', 'btq-wp-login')?></p>
+						<p><?php _e('Scan the QR code with your mobile from <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank">Google Authenticator</a> app.', 'btq-wp-login'); ?></p>
 						<p><img id="btq_wp_login_ga_code_img" src="<?php echo $ga_qr_image_src; ?>"><p>
 						<?php unlink($ga_qr_png); ?>
 						<?php } ?>
