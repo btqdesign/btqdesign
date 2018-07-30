@@ -412,30 +412,36 @@ class BTQ_WP_Login {
 									if (btq_wp_login_ga_prompt('Escribe el codigo:')){
 										intentos_validos++;
 										error_anterior = 0;
+										console.log('1 intentos_validos++ error_anterior = 0');
 									}
 									else {
 										intentos_erroneo++;
 										error_anterior = 1;
+										console.log('2 intentos_erroneo++ error_anterior = 1');
 									}
 								}
 								else if (intentos_validos <= 1 && error_anterior == 1) {
 									if (btq_wp_login_ga_prompt("Error en el codigo\nEscribe el codigo nuevamente:")){
 										intentos_validos++;
 										error_anterior = 0;
+										console.log('3 intentos_validos++ error_anterior = 0');
 									}
 									else {
 										intentos_erroneo++;
 										error_anterior = 1;
+										console.log('4 intentos_erroneo++ error_anterior = 1');
 									}
 								}
 								else if (intentos_validos <= 1 && error_anterior == 0) {
 									if (btq_wp_login_ga_prompt('Escribe el codigo:')){
 										intentos_validos++;
 										error_anterior = 0;
+										console.log('5 intentos_validos++ error_anterior = 1');
 									}
 									else {
 										intentos_erroneo++;
 										error_anterior = 1;
+										console.log('6 intentos_erroneo++ error_anterior = 1');
 									}
 								}
 								else {
@@ -464,9 +470,10 @@ class BTQ_WP_Login {
 							"json"
 						)
 						.done(function( data ) {
-							// Done
+							console.log('btq_wp_login_ga done');
 						})
 						.fail(function() {
+							console.log('btq_wp_login_ga fail');
 							$('#btq_wp_login_ga_code').text('<?php _e('Error', 'btq-wp-login'); ?>');
 						});
 					});
