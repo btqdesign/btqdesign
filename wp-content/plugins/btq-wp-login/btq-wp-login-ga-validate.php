@@ -26,5 +26,12 @@ if ( current_user_can( 'read' ) && isset( $_POST['code'] ) ) {
 	echo $out;
 }
 else {
-	echo '0';
+	$varPost = $_POST;
+	$userCan = current_user_can( 'read' );
+	
+	$exportUserCan = var_export($userCan, true);
+	$exportPost = var_export($varPost, true);
+	
+	echo 'User can: ' . $exportUserCan . "\n\n";
+	echo '_POST: ' . $exportPost;
 }
