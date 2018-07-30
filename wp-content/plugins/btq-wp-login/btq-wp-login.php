@@ -413,9 +413,9 @@ add_filter('wp_login_errors',		array($BTQ_WP_Login, 'btq_wp_login_recaptcha_logi
 add_filter('wp_authenticate_user',	array($BTQ_WP_Login, 'btq_wp_login_recaptcha_validate') );
 add_action('wp_login',				array($BTQ_WP_Login, 'btq_wp_login_recaptcha_login') );
 
-//add_action('show_user_profile',		array($BTQ_WP_Login,'btq_wp_login_ga_profile_field') );
-//add_action('admin_footer',			array($BTQ_WP_Login,'btq_wp_login_ga_profile_ajax') );
-//add_action('login_form',				array($BTQ_WP_Login,'btq_wp_login_form_ga') );
+add_action('show_user_profile',		array($BTQ_WP_Login, 'btq_wp_login_ga_profile_field') );
+add_action('admin_footer',			array($BTQ_WP_Login, 'btq_wp_login_ga_profile_ajax') );
+add_action('login_form',			array($BTQ_WP_Login, 'btq_wp_login_form_ga') );
 
 
 
