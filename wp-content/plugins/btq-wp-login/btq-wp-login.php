@@ -375,11 +375,11 @@ class BTQ_WP_Login {
 						}
 						else {
 							$.post(
-							    "/wp-admin/admin-ajax.php", 
+							    "/wp-admin/admin-ajax.php",
 							    {
 									"action" : "btq_wp_login_ga_validate",
 									"data"   : prompt_code
-							    }, 
+							    },
 							    function(response) {
 									if(response.isvalid == 1) {
 										that.out = true;
@@ -387,7 +387,7 @@ class BTQ_WP_Login {
 									else{
 										that.out = false;
 									}
-							    },, 
+							    },
 								"json"
 							)
 							.done(function(response) {
