@@ -382,27 +382,19 @@ class BTQ_WP_Login {
 									"data"   : prompt_code
 							    },
 							    function(response) {
-									if(response.isvalid == 1) {
-										that.out = true;
-									}
-									else{
-										that.out = false;
-									}
+									console.log(response.isvalid);
 							    },
 								"json"
 							)
 							.done(function(response) {
-								//if( response == 1) {
-								//	that.out = true;
-								//}
-								alert( '<?php _e('Se cargo el ajax', 'btq-wp-login'); ?>' );
+								console.log('Se cargo el Ajax');
 							})
 							.fail(function() {
-								alert( '<?php _e('Error validating the code', 'btq-wp-login'); ?>' );
+								console.log('Error al cargar el Ajax')
 							});
-							
-							return that.out;
 						}
+						
+						return out;
 					}
 					
 					// Cuando da click al boton "Actualizar Perfil"
