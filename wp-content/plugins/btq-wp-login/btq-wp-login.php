@@ -280,7 +280,29 @@ class BTQ_WP_Login {
 		}
 	}
 	/* add_action('show_user_profile', 'btq_wp_login_ga_profile_field'); */
-
+	
+	public function btq_wp_login_ga_validate_ajax(){
+		if(isset($_POST['code'])){
+			$code = $_POST['code'];
+			
+			// Obtiene la informacion del usuario actual
+			$current_user = wp_get_current_user();
+			// Obtiene la clave secreta
+			$ga_secret = get_user_meta($current_user->ID, 'ga_otpauth', true);
+			
+			// Obtiene la libreria de GoogleAuthenticator
+			require_once('lib/GoogleAuthenticator.php');
+			// Verifica el codigo
+			$ga = new PHPGangsta_GoogleAuthenticator();
+			$is_valid = $ga->verifyCode($ga_secret, $code);
+			
+			$out = $is_valid ? '1' : '0';
+			
+			echo $out;
+		}
+	}
+	// add_action( 'wp_ajax_btq_wp_login_ga_validate', 'btq_wp_login_ga_validate_ajax' );
+	
 	// Si es la pagina de perfil y tiene rol de administrador
 	public function btq_wp_login_ga_profile_ajax() {
 		// Si es la pagina de perfil
@@ -300,7 +322,9 @@ class BTQ_WP_Login {
 							return;
 						}
 						else {
-							var posting = $.post( '<?php echo plugin_dir_url( __FILE__ ).'btq-wp-login-ga-validate.php'; ?>', { code: prompt_code } )
+							var posting = $.post('/wp-admin/admin-ajax.php', { 
+								'action' : 'btq_wp_login_ga_validate',
+								'code': prompt_code } )
 							.done(function( data ) {
 								if( data == 1) {
 									that.out = true;
@@ -412,6 +436,7 @@ class BTQ_WP_Login {
 $BTQ_WP_Login = new BTQ_WP_Login();
 
 add_filter('wp_authenticate_user',	array($BTQ_WP_Login, 'btq_wp_login_noemail') );
+add_action('wp_ajax_btq_wp_login_ga_validate', array($BTQ_WP_Login, 'btq_wp_login_ga_validate_ajax') );
 
 add_action('init',					array($BTQ_WP_Login, 'btq_wp_login_recaptcha_session_start') );
 add_filter('wp_login_errors',		array($BTQ_WP_Login, 'btq_wp_login_recaptcha_login_errors') );
