@@ -24,6 +24,8 @@ if ( current_user_can( 'read' ) && isset( $_POST['code'] ) ) {
 	$out = $is_valid ? '1' : '0';
 	
 	echo $out;
-	
-	//wp_die();
 }
+else {
+	echo '0';
+}
+wp_die();
