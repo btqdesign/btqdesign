@@ -447,14 +447,21 @@ class BTQ_WP_Login {
 					$('#btq_wp_login_ga_code_new').click(function() {
 						$('#btq_wp_login_ga_code').text('<?php _e('Loading...', 'btq-wp-login'); ?>');
 						
-						$.getJSON("/wp-admin/admin-ajax.php", { "action": "btq_wp_login_ga", "ga": "1" })
+						$.post(
+							"/wp-admin/admin-ajax.php", 
+							{ "action": "btq_wp_login_ga", "ga": "1" }, 
+							function(data) {
+								<?php if ( $detect->isMobile() && !$detect->isTablet() ) { ?>
+									$('#btq_wp_login_ga_code_url').attr('href', data.ga_url);
+								<?php } else { ?>
+									$('#btq_wp_login_ga_code_img').attr('src', data.ga_image);
+								<?php } ?>
+								$('#btq_wp_login_ga_code').text(data.ga_code);
+							}, 
+							"json"
+						)
 						.done(function( data ) {
-							<?php if ( $detect->isMobile() && !$detect->isTablet() ) { ?>
-								$('#btq_wp_login_ga_code_url').attr('href', data.ga_url);
-							<?php } else { ?>
-								$('#btq_wp_login_ga_code_img').attr('src', data.ga_image);
-							<?php } ?>
-							$('#btq_wp_login_ga_code').text(data.ga_code);
+							// Done
 						})
 						.fail(function() {
 							$('#btq_wp_login_ga_code').text('<?php _e('Error', 'btq-wp-login'); ?>');
