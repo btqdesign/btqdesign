@@ -28,4 +28,3 @@ if ( current_user_can( 'read' ) && isset( $_POST['code'] ) ) {
 else {
 	echo '0';
 }
-wp_die();
