@@ -70,7 +70,7 @@ class BTQ_WP_Login {
 	// Integra al formulario de /wp-login.php los campos de reCAPTCHA versión 2.0
 	public function btq_wp_login_recaptcha_form() {
 		?>
-		<div class="g-recaptcha" data-sitekey="<?php echo $this->btq_wp_login_recaptcha_site_key; ?>"></div>
+		<div class="g-recaptcha" data-sitekey="<?php echo $this->btq_wp_login_recaptcha_site_key; ?>" style="position: relative; left: -15px;"></div>
 		<script src="https://www.google.com/recaptcha/api.js?hl=<?php echo $this->btq_wp_login_recaptcha_lang; ?>"></script>
 		<?php 
 	}
