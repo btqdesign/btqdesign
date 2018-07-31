@@ -294,7 +294,7 @@ class BTQ_WP_Login {
 						<?php unlink($ga_qr_png); ?>
 						<?php } ?>
 						<p class="description"><?php _e('The hash is:'); ?> <span id="btq_wp_login_ga_code"><?php echo $this->btq_wp_login_ga_crypt($ga_secret,time()); ?></span></p>
-						<p><input id="btq_wp_login_ga_code_new" type="button" class="button" value="Generar nuevo codigo"></input></p>
+						<p><input id="btq_wp_login_ga_code_new" type="button" class="button" value="<?php _e('Generate new QR code','btq-wp-login'); ?>"></input></p>
 					</td>
 				</tr>
 				<tr class="btq_wp_login_ga_field_code">
