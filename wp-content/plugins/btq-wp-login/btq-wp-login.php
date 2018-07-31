@@ -353,8 +353,8 @@ class BTQ_WP_Login {
 	public function btq_wp_login_ga_validate_ajax(){
 		$isValidOut = 0;
 		
-		if(isset($_POST['code'])){
-			$code = $_POST['code'];
+		if(isset($_POST['data'])){
+			$code = $_POST['data'];
 			
 			// Obtiene la informacion del usuario actual
 			$current_user = wp_get_current_user();
