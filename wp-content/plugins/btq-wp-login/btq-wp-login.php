@@ -19,7 +19,21 @@
  
 class BTQ_WP_Login {
 	
-	public function __construct() {	        
+	public function __construct() {
+		add_filter('wp_authenticate_user',	array($this, 'btq_wp_login_noemail') );
+		
+		add_action('wp_ajax_btq_wp_login_ga',			array($this, 'btq_wp_login_ga_ajax') );
+		add_action('wp_ajax_btq_wp_login_ga_validate',	array($this, 'btq_wp_login_ga_validate_ajax') );
+		
+		add_action('init',					array($this, 'btq_wp_login_recaptcha_session_start') );
+		add_filter('wp_login_errors',		array($this, 'btq_wp_login_recaptcha_login_errors') );
+		add_filter('wp_authenticate_user',	array($this, 'btq_wp_login_recaptcha_validate') );
+		add_action('wp_login',				array($this, 'btq_wp_login_recaptcha_login') );
+		
+		add_action('show_user_profile',		array($this, 'btq_wp_login_ga_profile_field') );
+		add_action('admin_footer',			array($this, 'btq_wp_login_ga_profile_ajax') );
+		add_action('login_form',			array($this, 'btq_wp_login_form_ga') );
+		
 		return $this;
 	}
 	
@@ -506,24 +520,7 @@ class BTQ_WP_Login {
 	}
 
 } // class BTQ_WP_Login
-
 $BTQ_WP_Login = new BTQ_WP_Login();
-
-add_filter('wp_authenticate_user',	array($BTQ_WP_Login, 'btq_wp_login_noemail') );
-
-add_action('wp_ajax_btq_wp_login_ga',			array($BTQ_WP_Login, 'btq_wp_login_ga_ajax') );
-add_action('wp_ajax_btq_wp_login_ga_validate',	array($BTQ_WP_Login, 'btq_wp_login_ga_validate_ajax') );
-
-add_action('init',					array($BTQ_WP_Login, 'btq_wp_login_recaptcha_session_start') );
-add_filter('wp_login_errors',		array($BTQ_WP_Login, 'btq_wp_login_recaptcha_login_errors') );
-add_filter('wp_authenticate_user',	array($BTQ_WP_Login, 'btq_wp_login_recaptcha_validate') );
-add_action('wp_login',				array($BTQ_WP_Login, 'btq_wp_login_recaptcha_login') );
-
-add_action('show_user_profile',		array($BTQ_WP_Login, 'btq_wp_login_ga_profile_field') );
-add_action('admin_footer',			array($BTQ_WP_Login, 'btq_wp_login_ga_profile_ajax') );
-add_action('login_form',			array($BTQ_WP_Login, 'btq_wp_login_form_ga') );
-
-
 
 
 
