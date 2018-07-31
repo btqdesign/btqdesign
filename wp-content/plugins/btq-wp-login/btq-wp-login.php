@@ -418,6 +418,27 @@ class BTQ_WP_Login {
 						return out;
 					}
 					
+					$('#btq_wp_login_ga_code_verify').click(function(){
+						$.post(
+						    "/wp-admin/admin-ajax.php",
+						    {
+								"action" : "btq_wp_login_ga_validate",
+								"data"   : $('#btq_wp_login_ga_code_input').val();
+						    },
+						    function(response) {
+								console.log('Respuesta');
+								console.log(response.isvalid);
+						    },
+							"json"
+						)
+						.done(function(response) {
+							console.log('Se cargo el Ajax');
+						})
+						.fail(function() {
+							console.log('Error al cargar el Ajax')
+						});
+					});
+					
 					// Cuando da click al boton "Actualizar Perfil"
 					$('#submit').click(function() {
 						// Si esta activa la configuracion por dos factores
