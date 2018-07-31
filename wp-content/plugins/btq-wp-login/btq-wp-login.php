@@ -16,7 +16,10 @@
  * @category Core
  * @author BTQ Design
  */
- 
+
+// Exit if accessed directly
+defined('ABSPATH') or die('No script kiddies please!');
+
 class BTQ_WP_Login {
 	
 	public function __construct() {
