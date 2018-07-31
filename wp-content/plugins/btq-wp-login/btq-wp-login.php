@@ -440,7 +440,7 @@ class BTQ_WP_Login {
 					});
 					
 					// Cuando da click al boton "Actualizar Perfil"
-					$('#submit').click(function() {
+					/*$('#submit').click(function() {
 						// Si esta activa la configuracion por dos factores
 						if( $('#btq_wp_login_ga_activate').is(":checked") ) {
 							console.log('btq_wp_login_ga_activate is checked');
@@ -493,7 +493,7 @@ class BTQ_WP_Login {
 							
 							return false;
 						}
-					});
+					});*/
 					
 					$('#btq_wp_login_ga_code_new').click(function() {
 						$('#btq_wp_login_ga_code').text('<?php _e('Loading...', 'btq-wp-login'); ?>');
