@@ -289,8 +289,14 @@ class BTQ_WP_Login {
 						<p><input id="btq_wp_login_ga_code_new" type="button" class="button" value="Generar nuevo codigo"></input></p>
 					</td>
 				</tr>
+				<tr>
+					<th><?php _e('Verify code','btq-wp-login'); ?></t>
+					<td>
+						<p><input type="text" class="regular-text" id="btq_wp_login_ga_code_input" name="btq_wp_login_ga_code_input" value="" /></p>
+						<p><input type="button" class="button" id="btq_wp_login_ga_code_verify" name="btq_wp_login_ga_code_verify" value="<?php _e('Verify code','btq-wp-login'); ?>" /></p>
+					</td>
+				</tr>
 			</table>
-			<input type="button" value="<?php _e('Save code','btq-wp-login'); ?>">
 			<?php 
 		}
 	}
