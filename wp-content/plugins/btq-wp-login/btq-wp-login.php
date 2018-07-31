@@ -290,6 +290,7 @@ class BTQ_WP_Login {
 					</td>
 				</tr>
 			</table>
+			<input type="button" value="<?php _e('Save code','btq-wp-login'); ?>">
 			<?php 
 		}
 	}
