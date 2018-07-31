@@ -23,6 +23,11 @@ defined('ABSPATH') or die('No script kiddies please!');
 class BTQ_WP_Login {
 	
 	public function __construct() {
+		/** 
+		 * Establece el dominio correcto para la carga de traducciones
+		 */
+		load_plugin_textdomain('btq-booking', false, basename( dirname( __FILE__ ) ) . '/languages');
+
 		add_filter('wp_authenticate_user',	array($this, 'btq_wp_login_noemail') );
 		
 		add_action('wp_ajax_btq_wp_login_ga',			array($this, 'btq_wp_login_ga_ajax') );
