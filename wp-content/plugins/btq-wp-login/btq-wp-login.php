@@ -423,7 +423,7 @@ class BTQ_WP_Login {
 						    "/wp-admin/admin-ajax.php",
 						    {
 								"action" : "btq_wp_login_ga_validate",
-								"data"   : $('#btq_wp_login_ga_code_input').val();
+								"data"   : $('#btq_wp_login_ga_code_input').val()
 						    },
 						    function(response) {
 								console.log('Respuesta');
