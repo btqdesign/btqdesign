@@ -436,6 +436,12 @@ class BTQ_WP_Login {
 						    function(response) {
 								console.log('Respuesta');
 								console.log(response.isvalid);
+								if (response.isvalid == 1){
+									$('#wpbody-content').prepend('<div class="error"><p>'+response.error_message+'</p></div>');
+								}
+								else {
+									$('#wpbody-content').prepend('<div class="error"><p>'+response.error_message+'</p></div>');
+								}
 						    },
 							"json"
 						)
