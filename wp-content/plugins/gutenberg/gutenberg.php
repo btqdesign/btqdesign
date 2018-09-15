@@ -3,15 +3,15 @@
  * Plugin Name: Gutenberg
  * Plugin URI: https://github.com/WordPress/gutenberg
  * Description: Printing since 1440. This is the development plugin for the new block editor in core.
- * Version: 3.5.0
+ * Version: 3.8.0
  * Author: Gutenberg Team
  *
  * @package gutenberg
  */
 
 ### BEGIN AUTO-GENERATED DEFINES
-define( 'GUTENBERG_VERSION', '3.5.0' );
-define( 'GUTENBERG_GIT_COMMIT', 'b66cc665f30aa670a249f2386b27b5aeed659ba0' );
+define( 'GUTENBERG_VERSION', '3.8.0' );
+define( 'GUTENBERG_GIT_COMMIT', 'a22963998c9f26439630d46a18303b6ae76ca694' );
 ### END AUTO-GENERATED DEFINES
 
 gutenberg_pre_init();
@@ -176,6 +176,8 @@ function gutenberg_pre_init() {
  * @return bool   Whether Gutenberg was initialized.
  */
 function gutenberg_init( $return, $post ) {
+	global $title, $post_type;
+
 	if ( true === $return && current_filter() === 'replace_editor' ) {
 		return $return;
 	}
@@ -188,11 +190,28 @@ function gutenberg_init( $return, $post ) {
 	add_filter( 'screen_options_show_screen', '__return_false' );
 	add_filter( 'admin_body_class', 'gutenberg_add_admin_body_class' );
 
-	/**
+	$post_type_object = get_post_type_object( $post_type );
+
+	/*
+	 * Always force <title> to 'Edit Post' (or equivalent)
+	 * because it needs to be in a generic state for both
+	 * post-new.php and post.php?post=<id>.
+	 */
+	if ( ! empty( $post_type_object ) ) {
+		$title = $post_type_object->labels->edit_item;
+	}
+
+	/*
 	 * Remove the emoji script as it is incompatible with both React and any
 	 * contenteditable fields.
 	 */
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+
+	/*
+	 * Ensure meta box functions are available to third-party code;
+	 * includes/meta-boxes is typically loaded from edit-form-advanced.php.
+	 */
+	require_once ABSPATH . 'wp-admin/includes/meta-boxes.php';
 
 	require_once ABSPATH . 'wp-admin/admin-header.php';
 	the_gutenberg_project();
@@ -239,6 +258,12 @@ add_action( 'admin_init', 'gutenberg_add_edit_link_filters' );
  * @return array          Updated post actions.
  */
 function gutenberg_add_edit_link( $actions, $post ) {
+	if ( 'wp_block' === $post->post_type ) {
+		unset( $actions['edit'] );
+		unset( $actions['inline hide-if-no-js'] );
+		return $actions;
+	}
+
 	if ( ! gutenberg_can_edit_post( $post ) ) {
 		return $actions;
 	}
@@ -252,11 +277,13 @@ function gutenberg_add_edit_link( $actions, $post ) {
 		'classic' => sprintf(
 			'<a href="%s" aria-label="%s">%s</a>',
 			esc_url( $edit_url ),
-			esc_attr( sprintf(
-				/* translators: %s: post title */
-				__( 'Edit &#8220;%s&#8221; in the classic editor', 'gutenberg' ),
-				$title
-			) ),
+			esc_attr(
+				sprintf(
+					/* translators: %s: post title */
+					__( 'Edit &#8220;%s&#8221; in the classic editor', 'gutenberg' ),
+					$title
+				)
+			),
 			__( 'Classic Editor', 'gutenberg' )
 		),
 	);
@@ -273,15 +300,42 @@ function gutenberg_add_edit_link( $actions, $post ) {
 }
 
 /**
+ * Removes the Edit action from the reusable block list's Bulk Actions dropdown.
+ *
+ * @since 3.8.0
+ *
+ * @param array $actions Bulk actions.
+ *
+ * @return array Updated bulk actions.
+ */
+function gutenberg_block_bulk_actions( $actions ) {
+	unset( $actions['edit'] );
+	return $actions;
+}
+add_filter( 'bulk_actions-edit-wp_block', 'gutenberg_block_bulk_actions' );
+
+/**
  * Prints the JavaScript to replace the default "Add New" button.$_COOKIE
  *
  * @since 1.5.0
  */
 function gutenberg_replace_default_add_new_button() {
 	global $typenow;
+
+	if ( 'wp_block' === $typenow ) {
+		?>
+		<style type="text/css">
+			.page-title-action {
+				display: none;
+			}
+		</style>
+		<?php
+	}
+
 	if ( ! gutenberg_can_edit_post_type( $typenow ) ) {
 		return;
 	}
+
 	?>
 	<style type="text/css">
 		.split-page-title-action {
@@ -415,5 +469,6 @@ add_action( 'admin_print_scripts-edit.php', 'gutenberg_replace_default_add_new_b
  * @return string The $classes string, with gutenberg-editor-page appended.
  */
 function gutenberg_add_admin_body_class( $classes ) {
-	return "$classes gutenberg-editor-page";
+	// Default to is-fullscreen-mode to avoid jumps in the UI.
+	return "$classes gutenberg-editor-page is-fullscreen-mode";
 }
