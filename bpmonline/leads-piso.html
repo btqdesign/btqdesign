@@ -1,0 +1,151 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+<script>
+/**
+* Replace the "css-selector" placeholders in the code below with the element selectors on your landing page.
+* You can use #id or any other CSS selector that will define the input field explicitly.
+* Example: "Email": "#MyEmailField".
+* If you don't have a field from the list below placed on your landing, leave the placeholder or remove the line.
+*/
+var config = {
+    fields: {
+        "Name": "#nombre", // Name of a visitor, submitting the page
+        "Email": "#email", // Visitor's email
+        "Zip": "#zip", // Visitor's ZIP code
+        "MobilePhone": "#mobile", // Visitor's phone number
+        "Company": "#company", // Name of a company (for business landing pages)
+        "UsrLineaSolicitada": "#linea" // Linea Solicitada
+
+        /*
+        "Industry": "css-selector", // Company industry (for business landing pages)
+        "FullJobTitle": "css-selector", // Visitor's job title (for business landing pages)
+        "UseEmail": "css-selector", // Logical value: 'true' equals to visitor's opt-in to receive emails
+        "City": "css-selector", // City
+        "Country": "css-selector", // Country
+        "Commentary": "css-selector", // Notes
+        "UsrLineaSolicitada": "css-selector", // Linea Solicitada
+        "UsrVehiculoInicial": "css-selector", // Vehículo Inicial (solicitado)
+        "UsrSegmentoSolicitado": "css-selector", // Segmento Solicitado
+        "UsrFormaPago": "css-selector", // Forma de Pago
+        "UsrMontoEnganche": "css-selector", // Monto de Enganche
+        "UsrPlazodeCredito": "css-selector", // Plazo de Crédito
+        "UsrMontoMensualidad": "css-selector", // Monto de Mensualidad
+        "UsrVersionSolicitada": "css-selector", // Versión Solicitada (Confirmada por el Asesor)
+        "UsrHorarioPropuesto": "css-selector", // Horario Propuesto
+        "UsrFechaPropuesta": "css-selector", // Fecha Propuesta
+        "UsrModelo": "css-selector", // Modelo Prueba de Manejo
+        "UsrEtapaLeadValor": "css-selector", // Etapa de lead (valor)
+        "Usrplazodelcredito": "css-selector", // Plazo
+        "UsrIngresosBuro": "css-selector", // Ingresos y buro
+        "UsrRequiereAval": "css-selector", // Requiere aval
+        "UsrNoCompruebaIngresos": "css-selector", // No comprueba ingresos
+        "UsrString1": "css-selector", // Cadena 1
+        "UsrString2": "css-selector", // Cadena 2
+        "UsrTomaAutoUsado": "css-selector", // Toma de auto usado
+        "UsrValuacionInicial": "css-selector" // Valuación inicial realizada
+        */
+    },
+    landingId: "b3e9790b-b03d-4bcd-9e53-e531e8444ca6",
+    serviceUrl: "https://ioa.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+    redirectUrl: "https://test.btqdesign.com/recibido.html"
+};
+/**
+* The function below creates a object from the submitted data.
+* Bind this function call to the "onSubmit" event of the form or any other elements events.
+* Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+*/
+function createObject() {
+    var fieldId = $("#linea_select option:selected").text();
+    $("#linea").val(fieldId);
+
+    landing.createObjectFromLanding(config)
+}
+/**
+* The function below inits landing page using URL parameters.
+*/
+function initLanding() {
+    landing.initLanding(config)
+}
+jQuery(document).ready(initLanding)
+</script>
+<meta charset="UTF-8">
+</head>
+<body>
+
+</body>
+<form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+<p>
+<label>
+Nombre:
+<input name="nombre" id="nombre" type="text">
+</label>
+</p>
+<p>
+<label>
+Email:
+<input name="email" id="email" type="text">
+</label>
+</p>
+<p>
+<label>
+Código Postal:
+<input name="zip" id="zip" type="text">
+</label>
+</p>
+<p>
+<label>
+Celular:
+<input name="mobile" id="mobile" type="text">
+</label>
+</p>
+<p>
+<label>
+Compañia:
+<input name="company" id="company" type="text">
+</label>
+</p>
+
+<p><label>
+Linea:
+<input type="hidden" name="linea" id="linea" />
+<select name="linea_select" id="linea_select">
+<option value="ACCORD">ACCORD</option>
+<option value="AVANZA">AVANZA</option>
+<option value="Avanza Cargo">Avanza Cargo</option>
+<option value="CAMRY">CAMRY</option>
+<option value="C-HR">C-HR</option>
+<option value="COROLLA">COROLLA</option>
+<option value="FJ Cruiser">FJ Cruiser</option>
+<option value="HIACE">HIACE</option>
+<option value="HIGHLANDER">HIGHLANDER</option>
+<option value="HILUX">HILUX</option>
+<option value="LAND CRUISER">LAND CRUISER</option>
+<option value="PRIUS">PRIUS</option>
+<option value="PRIUS C">PRIUS C</option>
+<option value="RAV 4">RAV 4</option>
+<option value="SEQUOIA">SEQUOIA</option>
+<option value="SIENNA">SIENNA</option>
+<option value="TACOMA">TACOMA</option>
+<option value="TRD SPORT">TRD SPORT</option>
+<option value="TRD SPORT 4X4">TRD SPORT 4X4</option>
+<option value="TUNDRA">TUNDRA</option>
+<option value="YARIS">YARIS</option>
+<option value="YARIS H/B">YARIS H/B</option>
+<option value="YARIS HATCHBACK">YARIS HATCHBACK</option>
+<option value="YARIS HB">YARIS HB</option>
+<option value="YARIS R">YARIS R</option>
+<option value="YARIS R18">YARIS R18</option>
+<option value="YARIS SD">YARIS SD</option>
+<option value="YARIS Sedán">YARIS Sedán</option>
+</select>
+
+</label></p>
+
+<p>
+<input type="submit" value="Enviar">
+</p>
+</form>
+</html>
