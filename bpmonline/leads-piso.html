@@ -17,46 +17,12 @@
           "GivenName":          "#given_name",
           "MiddleName":         "#middle_name",
           "Surname":            "#surname",
-          "MobilePhone":        "#css",
-          "Email":              "#css",
-          "UsrLineaSolicitada": "#css",
-          "LeadMedium":         "#css",
-          "UsrAreaDeVisita":    "#css",
-          "Owner":              "#css"
-          /*
-          "Name": "css-selector", // Name of a visitor, submitting the page
-          "Email": "css-selector", // Visitor's email
-          "Zip": "css-selector", // Visitor's ZIP code
-          "MobilePhone": "css-selector", // Visitor's phone number
-          "Company": "css-selector", // Name of a company (for business landing pages)
-          "Industry": "css-selector", // Company industry (for business landing pages)
-          "FullJobTitle": "css-selector", // Visitor's job title (for business landing pages)
-          "UseEmail": "css-selector", // Logical value: 'true' equals to visitor's opt-in to receive emails
-          "City": "css-selector", // City
-          "Country": "css-selector", // Country
-          "Commentary": "css-selector", // Notes
-          "UsrLineaSolicitada": "css-selector", // Linea Solicitada
-          "UsrVehiculoInicial": "css-selector", // Vehículo Inicial (solicitado)
-          "UsrSegmentoSolicitado": "css-selector", // Segmento Solicitado
-          "UsrFormaPago": "css-selector", // Forma de Pago
-          "UsrMontoEnganche": "css-selector", // Monto de Enganche
-          "UsrPlazodeCredito": "css-selector", // Plazo de Crédito
-          "UsrMontoMensualidad": "css-selector", // Monto de Mensualidad
-          "UsrVersionSolicitada": "css-selector", // Versión Solicitada (Confirmada por el Asesor)
-          "UsrHorarioPropuesto": "css-selector", // Horario Propuesto
-          "UsrFechaPropuesta": "css-selector", // Fecha Propuesta
-          "UsrModelo": "css-selector", // Modelo Prueba de Manejo
-          "UsrEtapaLeadValor": "css-selector", // Etapa de lead (valor)
-          "Usrplazodelcredito": "css-selector", // Plazo
-          "UsrIngresosBuro": "css-selector", // Ingresos y buro
-          "UsrRequiereAval": "css-selector", // Requiere aval
-          "UsrNoCompruebaIngresos": "css-selector", // No comprueba ingresos
-          "UsrString1": "css-selector", // Cadena 1
-          "UsrString2": "css-selector", // Cadena 2
-          "UsrTomaAutoUsado": "css-selector", // Toma de auto usado
-          "UsrValuacionInicial": "css-selector", // Valuación inicial realizada
-          "UsrAreaDeVisita": "css-selector" // Área de visita
-          */
+          "MobilePhone":        "#mobile_phone",
+          "Email":              "#email",
+          "UsrLineaSolicitada": "#usr_linea_solicitada",
+          "LeadMedium":         "#lead_medium",
+          "UsrAreaDeVisita":    "#usr_area_de_visita",
+          "Owner":              "#owner"
         },
         landingId: "b3e9790b-b03d-4bcd-9e53-e531e8444ca6",
         serviceUrl: "https://ioa.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
@@ -99,11 +65,11 @@
       </p>
       <p>
         <label for="email">Correo Electrónico:</label>
-        <input name="email" id="email" type="text">
+        <input name="email" id="email" type="email">
       </p>
       
       <p>
-        <label for="usr_linea_solicitada">Vehículo de Interés:</label>
+        <label for="usr_linea_solicitada_select">Vehículo de Interés:</label>
         <input name="usr_linea_solicitada" id="usr_linea_solicitada" type="hidden">
         <select name="usr_linea_solicitada_select" id="usr_linea_solicitada_select">
           <option value="ACCORD">ACCORD</option>
@@ -135,7 +101,7 @@
       </p>
       
       <p>
-        <label for="lead_medium">¿De donde nos conoce?</label>
+        <label for="lead_medium_select">¿De donde nos conoce?</label>
         <input name="lead_medium" id="lead_medium" type="hidden">
         <select name="lead_medium_select" id="lead_medium_select">
           <option value="Activaciones">Activaciones</option>
@@ -149,67 +115,57 @@
         </select>
       </p>
       
-      <!--
       <p>
-        <label for="nombre">Nombre:</label>
-        <input name="nombre" id="nombre" type="text">
-      </p>
-      <p>
-        <label for="em">Email:</label>
-        <input name="email" id="email" type="text">
-      </p>
-      <p>
-        <label for="zip">Código Postal:</label>
-        <input name="zip" id="zip" type="text">
-      </p>
-      <p>
-        <label for="mobile">Celular:</label>
-        <input name="mobile" id="mobile" type="text">
-      </p>
-      <p>
-        <label>Compañia:</label>
-        <input name="company" id="company" type="text">
-      </p>
-      
-      <p>
-        <label for="linea_select">Linea:</label>
-        <input type="hidden" name="linea" id="linea" />
-        <select name="linea_select" id="linea_select">
-          <option value="ACCORD">ACCORD</option>
-          <option value="AVANZA">AVANZA</option>
-          <option value="Avanza Cargo">Avanza Cargo</option>
-          <option value="CAMRY">CAMRY</option>
-          <option value="C-HR">C-HR</option>
-          <option value="COROLLA">COROLLA</option>
-          <option value="FJ Cruiser">FJ Cruiser</option>
-          <option value="HIACE">HIACE</option>
-          <option value="HIGHLANDER">HIGHLANDER</option>
-          <option value="HILUX">HILUX</option>
-          <option value="LAND CRUISER">LAND CRUISER</option>
-          <option value="PRIUS">PRIUS</option>
-          <option value="PRIUS C">PRIUS C</option>
-          <option value="RAV 4">RAV 4</option>
-          <option value="SEQUOIA">SEQUOIA</option>
-          <option value="SIENNA">SIENNA</option>
-          <option value="TACOMA">TACOMA</option>
-          <option value="TRD SPORT">TRD SPORT</option>
-          <option value="TRD SPORT 4X4">TRD SPORT 4X4</option>
-          <option value="TUNDRA">TUNDRA</option>
-          <option value="YARIS">YARIS</option>
-          <option value="YARIS H/B">YARIS H/B</option>
-          <option value="YARIS HATCHBACK">YARIS HATCHBACK</option>
-          <option value="YARIS HB">YARIS HB</option>
-          <option value="YARIS R">YARIS R</option>
-          <option value="YARIS R18">YARIS R18</option>
-          <option value="YARIS SD">YARIS SD</option>
-          <option value="YARIS Sedán">YARIS Sedán</option>
+        <label for="usr_area_de_visita_select">¿Qué area visita??</label>
+        <input name="usr_area_de_visita" id="usr_area_de_visita" type="hidden">
+        <select name="usr_area_de_visita_select" id="usr_area_de_visita_select">
+          <option value="Caja">Caja</option>
+          <option value="Crédito">Crédito</option>
+          <option value="Facturas">Facturas</option>
+          <option value="HYP">HYP</option>
+          <option value="Nuevos">Nuevos</option>
+          <option value="Refacciones">Refacciones</option>
+          <option value="Seguros">Seguros</option>
+          <option value="Seminuevos">Seminuevos</option>
+          <option value="Servicio">Servicio</option>
         </select>
       </p>
       
       <p>
-        <input type="submit" value="Enviar">
+        <label for="owner_select">Asesor asignado:</label>
+        <input name="owner" id="owner" type="hidden">
+        <select name="owner_select" id="owner_select">
+          <option value="Aidee Noemy Aceves Meneces">Aidee Noemy Aceves Meneces</option>
+          <option value="Bernardo Beguerisse Demongin">Bernardo Beguerisse Demongin</option>
+          <option value="Carlos Cruz Tovar">Carlos Cruz Tovar</option>
+          <option value="Cyndi Ortiz Rodriguez">Cyndi Ortiz Rodriguez</option>
+          <option value="Cynthia Guadarrma Arizmendi">Cynthia Guadarrma Arizmendi</option>
+          <option value="Daniela Goreti Sánchez Cano">Daniela Goreti Sánchez Cano</option>
+          <option value="David Tovar Cruz">David Tovar Cruz</option>
+          <option value="Eder Estrada Torres">Eder Estrada Torres</option>
+          <option value="Eleazar Fernandez Nieto">Eleazar Fernandez Nieto</option>
+          <option value="Gabriel Orozco Mancera">Gabriel Orozco Mancera</option>
+          <option value="Gabriela Servin Barriga">Gabriela Servin Barriga</option>
+          <option value="Gafiel Jacob Martinez Lopez">Gafiel Jacob Martinez Lopez</option>
+          <option value="Heriberto Perez Flores">Heriberto Perez Flores</option>
+          <option value="Ingrid Knoop Segura">Ingrid Knoop Segura</option>
+          <option value="Jaime Perez Vaquez">Jaime Perez Vaquez</option>
+          <option value="Jesus Manuel Romero Olvera">Jesus Manuel Romero Olvera</option>
+          <option value="Jose Angel Ortuño Lopez">Jose Angel Ortuño Lopez</option>
+          <option value="Jose Antonio Perez Suarez">Jose Antonio Perez Suarez</option>
+          <option value="Jose Enrique Garcia Perez">Jose Enrique Garcia Perez</option>
+          <option value="Jose Juan Cortes Villegas">Jose Juan Cortes Villegas</option>
+          <option value="Jose Luis Gomez Reyes">Jose Luis Gomez Reyes</option>
+          <option value="Lizette Cruz Perez">Lizette Cruz Perez</option>
+          <option value="Luisa Angela Lopez Aguado">Luisa Angela Lopez Aguado</option>
+          <option value="Manuel Martinez Bautista">Manuel Martinez Bautista</option>
+          <option value="Maria del Gutierrez Becerril">Maria del Gutierrez Becerril</option>
+          <option value="Maria Luisa Suantz Cano">Maria Luisa Suantz Cano</option>
+          <option value="Mario Alberto Celis Sanchez">Mario Alberto Celis Sanchez</option>
+          <option value="Sandra Gisela Hernandez Rojas">Sandra Gisela Hernandez Rojas</option>
+          <option value="Wilfrido Ruiz Sampallo">Wilfrido Ruiz Sampallo</option>
+        </select>
       </p>
-      -->
     </form>
   </body>
 </html>
