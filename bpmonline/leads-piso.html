@@ -34,6 +34,10 @@
     * Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
     */
     function createObject() {
+        $('#usr_linea_solicitada').val($('#usr_linea_solicitada_select').val());
+        $('#lead_medium').val($('#lead_medium_select').val());
+        $('#usr_area_de_visita_select').val($('#usr_area_de_visita_select').val());
+        $('#usr_linea_solicitada').val($('#usr_linea_solicitada_select').val());
         landing.createObjectFromLanding(config)
     }
     /**
@@ -104,6 +108,7 @@
         <label for="lead_medium_select">¿De donde nos conoce?</label>
         <input name="lead_medium" id="lead_medium" type="hidden">
         <select name="lead_medium_select" id="lead_medium_select">
+          <option value=""></option>
           <option value="Activaciones">Activaciones</option>
           <option value="Correo electrónico">Correo electrónico</option>
           <option value="Evento">Evento</option>
@@ -119,6 +124,7 @@
         <label for="usr_area_de_visita_select">¿Qué area visita??</label>
         <input name="usr_area_de_visita" id="usr_area_de_visita" type="hidden">
         <select name="usr_area_de_visita_select" id="usr_area_de_visita_select">
+          <option value=""></option>
           <option value="Caja">Caja</option>
           <option value="Crédito">Crédito</option>
           <option value="Facturas">Facturas</option>
@@ -135,6 +141,7 @@
         <label for="owner_select">Asesor asignado:</label>
         <input name="owner" id="owner" type="hidden">
         <select name="owner_select" id="owner_select">
+          <option value=""></option>
           <option value="Aidee Noemy Aceves Meneces">Aidee Noemy Aceves Meneces</option>
           <option value="Bernardo Beguerisse Demongin">Bernardo Beguerisse Demongin</option>
           <option value="Carlos Cruz Tovar">Carlos Cruz Tovar</option>
