@@ -23,7 +23,6 @@
           "MobilePhone":        "#mobile_phone",
           "Email":              "#email",
           "UsrLineaSolicitada": "#usr_linea_solicitada",
-          "LeadMedium":         "#lead_medium",
           "UsrAreaDeVisita":    "#usr_area_de_visita",
           "Owner":              "#owner"
         },
@@ -39,9 +38,8 @@
     function createObject() {
         $('#name').val($('#given_name').val() + ' ' + $('#middle_name').val() + ' ' + $('#surname').val());
         $('#usr_linea_solicitada').val($('#usr_linea_solicitada_select').val());
-        $('#lead_medium').val($('#lead_medium_select').val());
-        $('#usr_area_de_visita_select').val($('#usr_area_de_visita_select').val());
-        $('#usr_linea_solicitada').val($('#usr_linea_solicitada_select').val());
+        $('#usr_area_de_visita').val($('#usr_area_de_visita_select').val());
+        $('#owner').val($('#owner_select').val());
         landing.createObjectFromLanding(config)
     }
     /**
@@ -109,6 +107,7 @@
         </select>
       </p>
       
+      <!--
       <p>
         <label for="lead_medium_select">¿De donde nos conoce?</label>
         <input name="lead_medium" id="lead_medium" type="hidden">
@@ -124,6 +123,7 @@
           <option value="Otros canales">Otros canales</option>
         </select>
       </p>
+      -->
       
       <p>
         <label for="usr_area_de_visita_select">¿Qué area visita??</label>
