@@ -16,6 +16,7 @@
     */
     var config = {
         fields: {
+          "Name":               "#name",
           "GivenName":          "#given_name",
           "MiddleName":         "#middle_name",
           "Surname":            "#surname",
@@ -36,6 +37,7 @@
     * Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
     */
     function createObject() {
+        $('#name').val($('#given_name').val() + ' ' + $('#middle_name').val() + ' ' $('#surname').val());
         $('#usr_linea_solicitada').val($('#usr_linea_solicitada_select').val());
         $('#lead_medium').val($('#lead_medium_select').val());
         $('#usr_area_de_visita_select').val($('#usr_area_de_visita_select').val());
@@ -55,6 +57,7 @@
     <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
       <p>
         <label for="given_name">Nombre:</label>
+        <input name="name" id="name" type="hidden">
         <input name="given_name" id="given_name" type="text">
       </p>
       <p>
