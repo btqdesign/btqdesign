@@ -58,65 +58,71 @@
   </head>
   <body>
     <div class="container">
-      <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
-        <p>
-          <label for="given_name">Nombre:</label>
-          <input name="name" id="name" type="hidden">
-          <input name="given_name" id="given_name" type="text">
-        </p>
-        <p>
-          <label for="middle_name">Apellido Paterno:</label>
-          <input name="middle_name" id="middle_name" type="text">
-        </p>
-        <p>
-          <label for="surname">Apellido Materno:</label>
-          <input name="surname" id="surname" type="text">
-        </p>
-        <p>
-          <label for="mobile_phone">Teléfono Móvil:</label>
-          <input name="mobile_phone" id="mobile_phone" type="text">
-        </p>
-        <p>
-          <label for="email">Correo Electrónico:</label>
-          <input name="email" id="email" type="email">
-        </p>
-        
-        <p>
-          <label for="usr_linea_solicitada_select">Vehículo de Interés:</label>
-          <input name="usr_linea_solicitada" id="usr_linea_solicitada" type="hidden">
-          <select name="usr_linea_solicitada_select" id="usr_linea_solicitada_select">
-            <option value="ACCORD">ACCORD</option>
-            <option value="AVANZA">AVANZA</option>
-            <option value="Avanza Cargo">Avanza Cargo</option>
-            <option value="CAMRY">CAMRY</option>
-            <option value="C-HR">C-HR</option>
-            <option value="COROLLA">COROLLA</option>
-            <option value="FJ Cruiser">FJ Cruiser</option>
-            <option value="HIACE">HIACE</option>
-            <option value="HIGHLANDER">HIGHLANDER</option>
-            <option value="HILUX">HILUX</option>
-            <option value="LAND CRUISER">LAND CRUISER</option>
-            <option value="PRIUS">PRIUS</option>
-            <option value="PRIUS C">PRIUS C</option>
-            <option value="RAV 4">RAV 4</option>
-            <option value="SEQUOIA">SEQUOIA</option>
-            <option value="SIENNA">SIENNA</option>
-            <option value="TACOMA">TACOMA</option>
-            <option value="TRD SPORT">TRD SPORT</option>
-            <option value="TRD SPORT 4X4">TRD SPORT 4X4</option>
-            <option value="TUNDRA">TUNDRA</option>
-            <option value="YARIS">YARIS</option>
-            <option value="YARIS HATCHBACK">YARIS HATCHBACK</option>
-            <option value="YARIS R">YARIS R</option>
-            <option value="YARIS R18">YARIS R18</option>
-            <option value="YARIS SEDAN">YARIS SEDAN</option>
-          </select>
-        </p>
-        
-        <p>
-          <input type="submit" name="submit" value="Enviar">
-        </p>
-      </form>
+      <div class="row">
+        <div class="col">
+          
+          <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+            <p>
+              <label for="given_name">Nombre:</label>
+              <input name="name" id="name" type="hidden">
+              <input name="given_name" id="given_name" type="text">
+            </p>
+            <p>
+              <label for="middle_name">Apellido Paterno:</label>
+              <input name="middle_name" id="middle_name" type="text">
+            </p>
+            <p>
+              <label for="surname">Apellido Materno:</label>
+              <input name="surname" id="surname" type="text">
+            </p>
+            <p>
+              <label for="mobile_phone">Teléfono Móvil:</label>
+              <input name="mobile_phone" id="mobile_phone" type="text">
+            </p>
+            <p>
+              <label for="email">Correo Electrónico:</label>
+              <input name="email" id="email" type="email">
+            </p>
+            
+            <p>
+              <label for="usr_linea_solicitada_select">Vehículo de Interés:</label>
+              <input name="usr_linea_solicitada" id="usr_linea_solicitada" type="hidden">
+              <select name="usr_linea_solicitada_select" id="usr_linea_solicitada_select">
+                <option value="ACCORD">ACCORD</option>
+                <option value="AVANZA">AVANZA</option>
+                <option value="Avanza Cargo">Avanza Cargo</option>
+                <option value="CAMRY">CAMRY</option>
+                <option value="C-HR">C-HR</option>
+                <option value="COROLLA">COROLLA</option>
+                <option value="FJ Cruiser">FJ Cruiser</option>
+                <option value="HIACE">HIACE</option>
+                <option value="HIGHLANDER">HIGHLANDER</option>
+                <option value="HILUX">HILUX</option>
+                <option value="LAND CRUISER">LAND CRUISER</option>
+                <option value="PRIUS">PRIUS</option>
+                <option value="PRIUS C">PRIUS C</option>
+                <option value="RAV 4">RAV 4</option>
+                <option value="SEQUOIA">SEQUOIA</option>
+                <option value="SIENNA">SIENNA</option>
+                <option value="TACOMA">TACOMA</option>
+                <option value="TRD SPORT">TRD SPORT</option>
+                <option value="TRD SPORT 4X4">TRD SPORT 4X4</option>
+                <option value="TUNDRA">TUNDRA</option>
+                <option value="YARIS">YARIS</option>
+                <option value="YARIS HATCHBACK">YARIS HATCHBACK</option>
+                <option value="YARIS R">YARIS R</option>
+                <option value="YARIS R18">YARIS R18</option>
+                <option value="YARIS SEDAN">YARIS SEDAN</option>
+              </select>
+            </p>
+            
+            <p>
+              <input type="submit" name="submit" value="Enviar">
+            </p>
+          </form>
+          
+        </div>
+      </div>
     </div>
   </body>
 </html>
