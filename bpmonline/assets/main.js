@@ -59,16 +59,19 @@ var config = {
     serviceUrl: "https://ioa.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
     redirectUrl: "https://test.btqdesign.com/bpmonline/recibido.html"
 };
+function setVals() {
+    jQuery('#name').val(jQuery('#given_name').val() + ' ' + jQuery('#middle_name').val() + ' ' + jQuery('#surname').val());
+    jQuery('#usr_linea_solicitada').val(jQuery('#usr_linea_solicitada_dropdown').val());
+    jQuery('#usr_area_de_visita').val(jQuery('#usr_area_de_visita_dropdown').val());
+    jQuery('#owner').val(jQuery('#owner_dropdown').val());
+}
 /**
 * The function below creates a object from the submitted data.
 * Bind this function call to the "onSubmit" event of the form or any other elements events.
 * Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
 */
 function createObject() {
-    jQuery('#name').val(jQuery('#given_name').val() + ' ' + jQuery('#middle_name').val() + ' ' + jQuery('#surname').val());
-    jQuery('#usr_linea_solicitada').val(jQuery('#usr_linea_solicitada_dropdown').val());
-    jQuery('#usr_area_de_visita').val(jQuery('#usr_area_de_visita_dropdown').val());
-    jQuery('#owner').val(jQuery('#owner_dropdown').val());
+    setVals();
     landing.createObjectFromLanding(config)
 }
 /**
