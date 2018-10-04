@@ -25,7 +25,6 @@ function resizeCajas(){
 function dropddown(){
     $(".dropdown-menu a").click(function(){
         $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <i class="fas fa-caret-down"></i>');
-        console.log($(this).text());
         $(this).parents(".dropdown").find('.btn').val($(this).text());
     });
 }
