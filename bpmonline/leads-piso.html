@@ -1,198 +1,331 @@
 <!doctype html>
-<html lang="es-MX">
-  <head>
+<html class="no-js" lang="es-MX">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Registro</title>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-    
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="assets/plugins/Modernizr/modernizr-2.8.3.min.js"></script>
+
+    <script src="assets/plugins/jquery/jquery-1.11.2.min.js"></script>
     <script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
     <script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
-    <script>
-    /**
-    * Replace the "css-selector" placeholders in the code below with the element selectors on your landing page.
-    * You can use #id or any other CSS selector that will define the input field explicitly.
-    * Example: "Email": "#MyEmailField".
-    * If you don't have a field from the list below placed on your landing, leave the placeholder or remove the line.
-    */
-    var config = {
-        fields: {
-          "Name":               "#name",
-          "GivenName":          "#given_name",
-          "MiddleName":         "#middle_name",
-          "Surname":            "#surname",
-          "MobilePhone":        "#mobile_phone",
-          "Email":              "#email",
-          "UsrLineaSolicitada": "#usr_linea_solicitada",
-          "UsrAreaDeVisita":    "#usr_area_de_visita",
-          "Owner":              "#owner"
-        },
-        landingId: "b3e9790b-b03d-4bcd-9e53-e531e8444ca6",
-        serviceUrl: "https://ioa.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
-        redirectUrl: "https://test.btqdesign.com/bpmonline/recibido.html"
-    };
-    /**
-    * The function below creates a object from the submitted data.
-    * Bind this function call to the "onSubmit" event of the form or any other elements events.
-    * Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
-    */
-    function createObject() {
-        $('#name').val($('#given_name').val() + ' ' + $('#middle_name').val() + ' ' + $('#surname').val());
-        $('#usr_linea_solicitada').val($('#usr_linea_solicitada_select').val());
-        $('#usr_area_de_visita').val($('#usr_area_de_visita_select').val());
-        $('#owner').val($('#owner_select').val());
-        landing.createObjectFromLanding(config)
-    }
-    /**
-    * The function below inits landing page using URL parameters.
-    */
-    function initLanding() {
-        landing.initLanding(config)
-    }
-    jQuery(document).ready(initLanding)
-    </script>
-  </head>
-  <body>
-    <div class="container">
-      
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <picture>
-              <source media="(min-width: 650px)" srcset="assets/images/header.png 1x, assets/images/header@2x.png 2x, assets/images/header@3x.png 3x">
-              <source media="(min-width: 465px)" srcset="assets/images/header.png 1x, assets/images/header@2x.png 2x, assets/images/header@3x.png 3x">
-              <img src="assets/images/header.png" alt="Toyota" style="width:100%;" srcset="assets/images/header.png 1x, assets/images/header@2x.png 2x, assets/images/header@3x.png 3x">
-            </picture>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col">
-          
-          <form class="mainForm" name="landingForm" onSubmit="createObject(); return false" style="margin-top: 20px;">
-            <p>
-              <label for="given_name">Nombre:</label>
-              <input name="name" id="name" type="hidden">
-              <input name="given_name" id="given_name" type="text">
-            </p>
-            <p>
-              <label for="middle_name">Apellido Paterno:</label>
-              <input name="middle_name" id="middle_name" type="text">
-            </p>
-            <p>
-              <label for="surname">Apellido Materno:</label>
-              <input name="surname" id="surname" type="text">
-            </p>
-            <p>
-              <label for="mobile_phone">Teléfono Móvil:</label>
-              <input name="mobile_phone" id="mobile_phone" type="text">
-            </p>
-            <p>
-              <label for="email">Correo Electrónico:</label>
-              <input name="email" id="email" type="email">
-            </p>
-            
-            <p>
-              <label for="usr_linea_solicitada_select">Vehículo de Interés:</label>
-              <input name="usr_linea_solicitada" id="usr_linea_solicitada" type="hidden">
-              <select name="usr_linea_solicitada_select" id="usr_linea_solicitada_select">
-                <option value="ACCORD">ACCORD</option>
-                <option value="AVANZA">AVANZA</option>
-                <option value="Avanza Cargo">Avanza Cargo</option>
-                <option value="CAMRY">CAMRY</option>
-                <option value="C-HR">C-HR</option>
-                <option value="COROLLA">COROLLA</option>
-                <option value="FJ Cruiser">FJ Cruiser</option>
-                <option value="HIACE">HIACE</option>
-                <option value="HIGHLANDER">HIGHLANDER</option>
-                <option value="HILUX">HILUX</option>
-                <option value="LAND CRUISER">LAND CRUISER</option>
-                <option value="PRIUS">PRIUS</option>
-                <option value="PRIUS C">PRIUS C</option>
-                <option value="RAV 4">RAV 4</option>
-                <option value="SEQUOIA">SEQUOIA</option>
-                <option value="SIENNA">SIENNA</option>
-                <option value="TACOMA">TACOMA</option>
-                <option value="TRD SPORT">TRD SPORT</option>
-                <option value="TRD SPORT 4X4">TRD SPORT 4X4</option>
-                <option value="TUNDRA">TUNDRA</option>
-                <option value="YARIS">YARIS</option>
-                <option value="YARIS HATCHBACK">YARIS HATCHBACK</option>
-                <option value="YARIS R">YARIS R</option>
-                <option value="YARIS R18">YARIS R18</option>
-                <option value="YARIS SEDAN">YARIS SEDAN</option>
-              </select>
-            </p>
-            
-            <p>
-              <label for="usr_area_de_visita_select">¿Qué area visita??</label>
-              <input name="usr_area_de_visita" id="usr_area_de_visita" type="hidden">
-              <select name="usr_area_de_visita_select" id="usr_area_de_visita_select">
-                <option value=""></option>
-                <option value="Caja">Caja</option>
-                <option value="Crédito">Crédito</option>
-                <option value="Facturas">Facturas</option>
-                <option value="HYP">HYP</option>
-                <option value="Nuevos">Nuevos</option>
-                <option value="Refacciones">Refacciones</option>
-                <option value="Seguros">Seguros</option>
-                <option value="Seminuevos">Seminuevos</option>
-                <option value="Servicio">Servicio</option>
-              </select>
-            </p>
-            
-            <p>
-              <label for="owner_select">Asesor asignado:</label>
-              <input name="owner" id="owner" type="hidden">
-              <select name="owner_select" id="owner_select">
-                <option value=""></option>
-                <option value="Aidee Noemy Aceves Meneces">Aidee Noemy Aceves Meneces</option>
-                <option value="Bernardo Beguerisse Demongin">Bernardo Beguerisse Demongin</option>
-                <option value="Carlos Cruz Tovar">Carlos Cruz Tovar</option>
-                <option value="Cyndi Ortiz Rodriguez">Cyndi Ortiz Rodriguez</option>
-                <option value="Cynthia Guadarrma Arizmendi">Cynthia Guadarrma Arizmendi</option>
-                <option value="Daniela Goreti Sánchez Cano">Daniela Goreti Sánchez Cano</option>
-                <option value="David Tovar Cruz">David Tovar Cruz</option>
-                <option value="Eder Estrada Torres">Eder Estrada Torres</option>
-                <option value="Eleazar Fernandez Nieto">Eleazar Fernandez Nieto</option>
-                <option value="Gabriel Orozco Mancera">Gabriel Orozco Mancera</option>
-                <option value="Gabriela Servin Barriga">Gabriela Servin Barriga</option>
-                <option value="Gafiel Jacob Martinez Lopez">Gafiel Jacob Martinez Lopez</option>
-                <option value="Heriberto Perez Flores">Heriberto Perez Flores</option>
-                <option value="Ingrid Knoop Segura">Ingrid Knoop Segura</option>
-                <option value="Jaime Perez Vaquez">Jaime Perez Vaquez</option>
-                <option value="Jesus Manuel Romero Olvera">Jesus Manuel Romero Olvera</option>
-                <option value="Jose Angel Ortuño Lopez">Jose Angel Ortuño Lopez</option>
-                <option value="Jose Antonio Perez Suarez">Jose Antonio Perez Suarez</option>
-                <option value="Jose Enrique Garcia Perez">Jose Enrique Garcia Perez</option>
-                <option value="Jose Juan Cortes Villegas">Jose Juan Cortes Villegas</option>
-                <option value="Jose Luis Gomez Reyes">Jose Luis Gomez Reyes</option>
-                <option value="Lizette Cruz Perez">Lizette Cruz Perez</option>
-                <option value="Luisa Angela Lopez Aguado">Luisa Angela Lopez Aguado</option>
-                <option value="Manuel Martinez Bautista">Manuel Martinez Bautista</option>
-                <option value="Maria del Gutierrez Becerril">Maria del Gutierrez Becerril</option>
-                <option value="Maria Luisa Suantz Cano">Maria Luisa Suantz Cano</option>
-                <option value="Mario Alberto Celis Sanchez">Mario Alberto Celis Sanchez</option>
-                <option value="Sandra Gisela Hernandez Rojas">Sandra Gisela Hernandez Rojas</option>
-                <option value="Wilfrido Ruiz Sampallo">Wilfrido Ruiz Sampallo</option>
-              </select>
-            </p>
-            
-            <p>
-              <input type="submit" name="submit" value="Enviar">
-            </p>
-          </form>
-          
-        </div>
-      </div>
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <header class="hero-area hero-area__formulario">
+    <img src="assets/images/bg-header.png" class="bg-header" alt="">
+    <div class="logo-content">
+      <img src="assets/images/logo-toyota.svg" alt="">
     </div>
-  </body>
+  </header>
+
+  <section class="section formulario">
+		<div class="container">
+			<form>
+				<div class="row">
+				  	<div class="form-group clearfix">
+				  		<!-- Nombre -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="given_name" class="inp">
+                      <input name="name" id="name" type="hidden">
+			             		<input type="text" id="given_name" name="given_name" placeholder="&nbsp;">
+			             		<span class="label">Nombre |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				    	<!-- Apellido Paterno -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="middle_name" class="inp">
+			             		<input type="text" id="middle_name" name="middle_name" placeholder="&nbsp;">
+			             		<span class="label">Apellido Paterno |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				    	<!-- Apellido Materno -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="surname" class="inp">
+			             		<input type="text" id="surname" name="surname" placeholder="&nbsp;">
+			             		<span class="label">Apellido Materno |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				  	</div> <!-- form-group -->
+				</div><!-- row -->
+
+				<div class="row">
+				  	<div class="form-group clearfix">
+				  		<!-- Teléfono Móvil -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="mobile_phone" class="inp">
+			             		<input type="number" id="mobile_phone" name="mobile_phone" placeholder="&nbsp;">
+			             		<span class="label">Teléfono Móvil |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+
+				    	<!-- Correo Electrónico -->
+				    	<div class="col-xs-12 col-sm-5 group-input">
+				      		<label for="email" class="inp">
+			             		<input type="email" id="email" name="email" placeholder="&nbsp;">
+			             		<span class="label">Correo Electrónico |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				  	</div><!-- form-group -->
+				</div><!-- row -->
+
+				<!-- DROPDOWNS -->
+				<div class="row">
+					<div class="form-group form-group__dropdowns clearfix">
+						
+						<!-- Vehículo de Interés -->
+						<div class="col-xs-12 col-sm-3 group-input">
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<p class="label">Vehículo de Interés</p>
+								</div>
+								<div class="col-sm-12 col-md-7 no-padding-l">
+									<div class="btn-group dropdown">
+                      <input name="usr_linea_solicitada" id="usr_linea_solicitada" type="hidden">
+                      <button id="usr_linea_solicitada_dropdown" class="btn btn-gris" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ACCORD <i class="fas fa-caret-down"></i></button>
+
+									    <div class="dropdown-menu">
+									        <a class="dropdown-item" href="#">ACCORD</a>
+                          <a class="dropdown-item" href="#">AVANZA</a>
+                          <a class="dropdown-item" href="#">Avanza Cargo</a>
+                          <a class="dropdown-item" href="#">CAMRY</a>
+                          <a class="dropdown-item" href="#">C-HR</a>
+                          <a class="dropdown-item" href="#">COROLLA</a>
+                          <a class="dropdown-item" href="#">FJ Cruiser</a>
+                          <a class="dropdown-item" href="#">HIACE</a>
+                          <a class="dropdown-item" href="#">HIGHLANDER</a>
+                          <a class="dropdown-item" href="#">HILUX</a>
+                          <a class="dropdown-item" href="#">LAND CRUISER</a>
+                          <a class="dropdown-item" href="#">PRIUS</a>
+                          <a class="dropdown-item" href="#">PRIUS C</a>
+                          <a class="dropdown-item" href="#">RAV 4</a>
+                          <a class="dropdown-item" href="#">SEQUOIA</a>
+                          <a class="dropdown-item" href="#">SIENNA</a>
+                          <a class="dropdown-item" href="#">TACOMA</a>
+                          <a class="dropdown-item" href="#">TRD SPORT</a>
+                          <a class="dropdown-item" href="#">TRD SPORT 4X4</a>
+                          <a class="dropdown-item" href="#">TUNDRA</a>
+                          <a class="dropdown-item" href="#">YARIS</a>
+                          <a class="dropdown-item" href="#">YARIS HATCHBACK</a>
+                          <a class="dropdown-item" href="#">YARIS R</a>
+                          <a class="dropdown-item" href="#">YARIS R18</a>
+                          <a class="dropdown-item" href="#">YARIS SEDAN</a>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div><!-- FIN Vehículo de Interés -->
+
+						<!-- ¿Qué área visita? -->
+						<div class="col-xs-12 col-sm-4 group-input">
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<p class="label">¿Qué área visita?</p>
+								</div>
+								<div class="col-sm-12 col-md-7 no-padding-l">
+									<div class="btn-group dropdown">
+                      <input name="usr_area_de_visita" id="usr_area_de_visita" type="hidden">
+                      <button id="usr_area_de_visita_dropdown" class="btn btn-gris" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Caja <i class="fas fa-caret-down"></i></button>
+
+									    <div class="dropdown-menu">
+									        <a class="dropdown-item" href="#">Caja</a>
+                          <a class="dropdown-item" href="#">Crédito</a>
+                          <a class="dropdown-item" href="#">Facturas</a>
+                          <a class="dropdown-item" href="#">HYP</a>
+                          <a class="dropdown-item" href="#">Nuevos</a>
+                          <a class="dropdown-item" href="#">Refacciones</a>
+                          <a class="dropdown-item" href="#">Seguros</a>
+                          <a class="dropdown-item" href="#">Seminuevos</a>
+                          <a class="dropdown-item" href="#">Servicio</a>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div><!-- FIN ¿Qué área visita? -->
+
+						<!-- Asesor asignado -->
+						<div class="col-xs-12 col-sm-5 group-input">
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<p class="label">Asesor asignado</p>
+								</div>
+								<div class="col-sm-12 col-md-7 no-padding-l">
+									<div class="btn-group dropdown">
+                      <input name="owner" id="owner" type="hidden">
+									    <button id="owner_dropdown" class="btn btn-gris" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Basic dropdown <i class="fas fa-caret-down"></i></button>
+
+									    <div class="dropdown-menu">
+									        <a class="dropdown-item" href="#">Aidee Noemy Aceves Meneces</a>
+                          <a class="dropdown-item" href="#">Bernardo Beguerisse Demongin</a>
+                          <a class="dropdown-item" href="#">Carlos Cruz Tovar</a>
+                          <a class="dropdown-item" href="#">Cyndi Ortiz Rodriguez</a>
+                          <a class="dropdown-item" href="#">Cynthia Guadarrma Arizmendi</a>
+                          <a class="dropdown-item" href="#">Daniela Goreti Sánchez Cano</a>
+                          <a class="dropdown-item" href="#">David Tovar Cruz</a>
+                          <a class="dropdown-item" href="#">Eder Estrada Torres</a>
+                          <a class="dropdown-item" href="#">Eleazar Fernandez Nieto</a>
+                          <a class="dropdown-item" href="#">Gabriel Orozco Mancera</a>
+                          <a class="dropdown-item" href="#">Gabriela Servin Barriga</a>
+                          <a class="dropdown-item" href="#">Gafiel Jacob Martinez Lopez</a>
+                          <a class="dropdown-item" href="#">Heriberto Perez Flores</a>
+                          <a class="dropdown-item" href="#">Ingrid Knoop Segura</a>
+                          <a class="dropdown-item" href="#">Jaime Perez Vaquez</a>
+                          <a class="dropdown-item" href="#">Jesus Manuel Romero Olvera</a>
+                          <a class="dropdown-item" href="#">Jose Angel Ortuño Lopez</a>
+                          <a class="dropdown-item" href="#">Jose Antonio Perez Suarez</a>
+                          <a class="dropdown-item" href="#">Jose Enrique Garcia Perez</a>
+                          <a class="dropdown-item" href="#">Jose Juan Cortes Villegas</a>
+                          <a class="dropdown-item" href="#">Jose Luis Gomez Reyes</a>
+                          <a class="dropdown-item" href="#">Lizette Cruz Perez</a>
+                          <a class="dropdown-item" href="#">Luisa Angela Lopez Aguado</a>
+                          <a class="dropdown-item" href="#">Manuel Martinez Bautista</a>
+                          <a class="dropdown-item" href="#">Maria del Gutierrez Becerril</a>
+                          <a class="dropdown-item" href="#">Maria Luisa Suantz Cano</a>
+                          <a class="dropdown-item" href="#">Mario Alberto Celis Sanchez</a>
+                          <a class="dropdown-item" href="#">Sandra Gisela Hernandez Rojas</a>
+                          <a class="dropdown-item" href="#">Wilfrido Ruiz Sampallo</a>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div><!-- FIN Asesor asignado -->
+
+					</div>
+				</div><!-- DROPDOWNS -->
+				<div class="row button-group">
+					<div class="col-sm-4 hidden-mb"></div>
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-red">Enviar</button>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="logo-footer">
+					<img src="assets/images/logo-toyota-bottom.svg" alt="">
+				</div>
+			</div>
+		</div>
+  </footer>
+  
+  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/main.js"></script>
+  
+  <!--
+  <form class="mainForm" name="landingForm" onSubmit="createObject(); return false" style="margin-top: 20px;">
+    <p>
+      <label for="usr_linea_solicitada_select">Vehículo de Interés:</label>
+      <input name="usr_linea_solicitada" id="usr_linea_solicitada" type="hidden">
+      <select name="usr_linea_solicitada_select" id="usr_linea_solicitada_select">
+        <option value="ACCORD">ACCORD</option>
+        <option value="AVANZA">AVANZA</option>
+        <option value="Avanza Cargo">Avanza Cargo</option>
+        <option value="CAMRY">CAMRY</option>
+        <option value="C-HR">C-HR</option>
+        <option value="COROLLA">COROLLA</option>
+        <option value="FJ Cruiser">FJ Cruiser</option>
+        <option value="HIACE">HIACE</option>
+        <option value="HIGHLANDER">HIGHLANDER</option>
+        <option value="HILUX">HILUX</option>
+        <option value="LAND CRUISER">LAND CRUISER</option>
+        <option value="PRIUS">PRIUS</option>
+        <option value="PRIUS C">PRIUS C</option>
+        <option value="RAV 4">RAV 4</option>
+        <option value="SEQUOIA">SEQUOIA</option>
+        <option value="SIENNA">SIENNA</option>
+        <option value="TACOMA">TACOMA</option>
+        <option value="TRD SPORT">TRD SPORT</option>
+        <option value="TRD SPORT 4X4">TRD SPORT 4X4</option>
+        <option value="TUNDRA">TUNDRA</option>
+        <option value="YARIS">YARIS</option>
+        <option value="YARIS HATCHBACK">YARIS HATCHBACK</option>
+        <option value="YARIS R">YARIS R</option>
+        <option value="YARIS R18">YARIS R18</option>
+        <option value="YARIS SEDAN">YARIS SEDAN</option>
+      </select>
+    </p>
+    
+    <p>
+      <label for="usr_area_de_visita_select">¿Qué area visita??</label>
+      <input name="usr_area_de_visita" id="usr_area_de_visita" type="hidden">
+      <select name="usr_area_de_visita_select" id="usr_area_de_visita_select">
+        <option value=""></option>
+        <option value="Caja">Caja</option>
+        <option value="Crédito">Crédito</option>
+        <option value="Facturas">Facturas</option>
+        <option value="HYP">HYP</option>
+        <option value="Nuevos">Nuevos</option>
+        <option value="Refacciones">Refacciones</option>
+        <option value="Seguros">Seguros</option>
+        <option value="Seminuevos">Seminuevos</option>
+        <option value="Servicio">Servicio</option>
+      </select>
+    </p>
+    
+    <p>
+      <label for="owner_select">Asesor asignado:</label>
+      <input name="owner" id="owner" type="hidden">
+      <select name="owner_select" id="owner_select">
+        <option value=""></option>
+        <option value="Aidee Noemy Aceves Meneces">Aidee Noemy Aceves Meneces</option>
+        <option value="Bernardo Beguerisse Demongin">Bernardo Beguerisse Demongin</option>
+        <option value="Carlos Cruz Tovar">Carlos Cruz Tovar</option>
+        <option value="Cyndi Ortiz Rodriguez">Cyndi Ortiz Rodriguez</option>
+        <option value="Cynthia Guadarrma Arizmendi">Cynthia Guadarrma Arizmendi</option>
+        <option value="Daniela Goreti Sánchez Cano">Daniela Goreti Sánchez Cano</option>
+        <option value="David Tovar Cruz">David Tovar Cruz</option>
+        <option value="Eder Estrada Torres">Eder Estrada Torres</option>
+        <option value="Eleazar Fernandez Nieto">Eleazar Fernandez Nieto</option>
+        <option value="Gabriel Orozco Mancera">Gabriel Orozco Mancera</option>
+        <option value="Gabriela Servin Barriga">Gabriela Servin Barriga</option>
+        <option value="Gafiel Jacob Martinez Lopez">Gafiel Jacob Martinez Lopez</option>
+        <option value="Heriberto Perez Flores">Heriberto Perez Flores</option>
+        <option value="Ingrid Knoop Segura">Ingrid Knoop Segura</option>
+        <option value="Jaime Perez Vaquez">Jaime Perez Vaquez</option>
+        <option value="Jesus Manuel Romero Olvera">Jesus Manuel Romero Olvera</option>
+        <option value="Jose Angel Ortuño Lopez">Jose Angel Ortuño Lopez</option>
+        <option value="Jose Antonio Perez Suarez">Jose Antonio Perez Suarez</option>
+        <option value="Jose Enrique Garcia Perez">Jose Enrique Garcia Perez</option>
+        <option value="Jose Juan Cortes Villegas">Jose Juan Cortes Villegas</option>
+        <option value="Jose Luis Gomez Reyes">Jose Luis Gomez Reyes</option>
+        <option value="Lizette Cruz Perez">Lizette Cruz Perez</option>
+        <option value="Luisa Angela Lopez Aguado">Luisa Angela Lopez Aguado</option>
+        <option value="Manuel Martinez Bautista">Manuel Martinez Bautista</option>
+        <option value="Maria del Gutierrez Becerril">Maria del Gutierrez Becerril</option>
+        <option value="Maria Luisa Suantz Cano">Maria Luisa Suantz Cano</option>
+        <option value="Mario Alberto Celis Sanchez">Mario Alberto Celis Sanchez</option>
+        <option value="Sandra Gisela Hernandez Rojas">Sandra Gisela Hernandez Rojas</option>
+        <option value="Wilfrido Ruiz Sampallo">Wilfrido Ruiz Sampallo</option>
+      </select>
+    </p>
+    
+    <p>
+      <input type="submit" name="submit" value="Enviar">
+    </p>
+  </form>
+  -->
+</body>
+
 </html>
