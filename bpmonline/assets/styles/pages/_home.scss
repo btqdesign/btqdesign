@@ -1,0 +1,89 @@
+.home{
+	position: relative;
+	@media screen and (min-width: $break-small) {
+		margin-top: 0px;
+		top: -75px;
+	}
+    .container{
+	    width: 80%;
+		.buttons-content{
+		    position: relative;
+		    left: 0;
+		    top: 0px;
+		    z-index: 3;
+			.abrir-form{
+				margin-bottom: 20px;
+				a{
+					background-color: $gris;
+					color: white;
+					display: block;
+					margin: 0 auto;
+					text-align: center;
+					// max-width: 250px;
+					// min-height: 200px;
+					padding: 60% 0 0;
+					position: relative;
+				    @include mboxshadow(1);
+					&:hover,
+					&:active,
+				    &:focus {
+						@include redboxshadow(4);
+						background-color: $rojo;
+						transform: scale(1.05);
+						@media screen and (min-width: $break-small) {
+							// top: -8px;
+						}
+					}
+					@media screen and (min-width: $break-small) {
+					    margin: 0 auto;
+					    min-height: 170px;
+					    max-width: unset;
+					}
+				}
+				&:last-child{
+					margin-bottom: 10px;
+					@media screen and (min-width: $break-small) {
+						margin-bottom: 20px;
+						a{
+							margin-right: 0;
+						}
+					}
+				}
+				&:first-child{
+					@media screen and (min-width: $break-small) {
+						a{
+							margin-left: 0;
+						}
+					}	
+				}
+				@media screen and (min-width: $break-medium) {
+				    padding: 0 30px;
+				}
+			}
+		}
+		.text-content {
+		    padding: 0 8%;
+		    @media screen and (min-width: $break-small) {
+		    	padding: 0 15px;
+		    }
+		    @media screen and (min-width: $break-medium) {
+		    	padding: 0 30px;
+		    }
+		    h1{
+		    	font-size: 30px;
+    			line-height: 1.2;
+    			letter-spacing: 1px;
+		    	font-weight: 100;
+		    	@media screen and (min-width: $break-small) {
+					font-size: 40px;
+				}
+				@media screen and (min-width: $break-medium) {
+					font-size: 50px;
+				}
+				@media screen and (min-width: $break-large) {
+					font-size: 60px;
+				}
+		    }
+		}
+	}
+}

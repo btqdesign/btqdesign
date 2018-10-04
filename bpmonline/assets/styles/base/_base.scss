@@ -1,0 +1,40 @@
+html{
+	box-sizing: border-box;
+}
+body{
+	height: 100%;
+	position: relative;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+} 
+
+a {
+	text-decoration: none;
+}
+
+.section{
+	margin: 20px 0 30px;
+	height: 100%;
+	@media screen and (min-width: 550px){
+		margin: 40px 0 30px;
+	}
+	&.formulario{
+		margin-top: 50px;
+		@media screen and (min-width: $break-small) {
+			margin-top: 30px;
+		}
+		@media screen and (min-width: 550px){
+			margin: 100px 0 30px;
+		}
+		.container {
+	    	width: 90%;
+		}
+	}
+}
+.no-padding-l{
+	@media screen and (min-width: $break-small) {
+		padding-left: 0;
+
+	}
+}

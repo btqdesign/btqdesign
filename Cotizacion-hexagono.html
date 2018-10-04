@@ -1,0 +1,70 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+<script>
+/**
+* Replace the "css-selector" placeholders in the code below with the element selectors on your landing page.
+* You can use #id or any other CSS selector that will define the input field explicitly.
+* Example: "Email": "#MyEmailField".
+* If you don't have a field from the list below placed on your landing, leave the placeholder or remove the line.
+*/
+var config = {
+    fields: {
+        "Name": "css-selector", // Name of a visitor, submitting the page
+        "Email": "css-selector", // Visitor's email
+        "Zip": "css-selector", // Visitor's ZIP code
+        "MobilePhone": "css-selector", // Visitor's phone number
+        "Company": "css-selector", // Name of a company (for business landing pages)
+        "Industry": "css-selector", // Company industry (for business landing pages)
+        "FullJobTitle": "css-selector", // Visitor's job title (for business landing pages)
+        "UseEmail": "css-selector", // Logical value: 'true' equals to visitor's opt-in to receive emails
+        "City": "css-selector", // City
+        "Country": "css-selector", // Country
+        "Commentary": "css-selector", // Notes
+        "UsrLineaSolicitada": "css-selector", // Linea Solicitada
+        "UsrVehiculoInicial": "css-selector", // Vehículo Inicial (solicitado)
+        "UsrSegmentoSolicitado": "css-selector", // Segmento Solicitado
+        "UsrFormaPago": "css-selector", // Forma de Pago
+        "UsrMontoEnganche": "css-selector", // Monto de Enganche
+        "UsrPlazodeCredito": "css-selector", // Plazo de Crédito
+        "UsrMontoMensualidad": "css-selector", // Monto de Mensualidad
+        "UsrVersionSolicitada": "css-selector", // Versión Solicitada (Confirmada por el Asesor)
+        "UsrHorarioPropuesto": "css-selector", // Horario Propuesto
+        "UsrFechaPropuesta": "css-selector", // Fecha Propuesta
+        "UsrModelo": "css-selector", // Modelo Prueba de Manejo
+        "UsrEtapaLeadValor": "css-selector", // Etapa de lead (valor)
+        "Usrplazodelcredito": "css-selector", // Plazo
+        "UsrIngresosBuro": "css-selector", // Mal Buró
+        "UsrRequiereAval": "css-selector", // No encuentra aval
+        "UsrNoCompruebaIngresos": "css-selector", // No comprueba ingresos
+        "UsrString1": "css-selector", // Cadena 1
+        "UsrString2": "css-selector", // Cadena 2
+        "UsrTomaAutoUsado": "css-selector", // Toma de auto usado
+        "UsrValuacionInicial": "css-selector", // Valuación inicial realizada
+        "UsrAreaDeVisita": "css-selector", // Área de visita
+        "UsrDejaAutoACambio": "css-selector", // Desea dejar auto a cambio
+        "UsrPorcentajeEnganche": "css-selector", // Porcentaje de enganche
+        "UsrRazonPerdidaLead": "css-selector", // Razón de pérdida de Lead
+        "UsrOportunidadGenerada": "css-selector", // Oportunidad Generada
+        "UsrLeadPerdido": "css-selector" // Lead Perdido
+    },
+    landingId: "02a5925c-75c9-4014-91ec-d0ddda206bce",
+    serviceUrl: "https://ioa.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+    redirectUrl: ""
+};
+/**
+* The function below creates a object from the submitted data.
+* Bind this function call to the "onSubmit" event of the form or any other elements events.
+* Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+*/
+function createObject() {
+    landing.createObjectFromLanding(config)
+}
+/**
+* The function below inits landing page using URL parameters.
+*/
+function initLanding() {
+    landing.initLanding(config)
+}
+jQuery(document).ready(initLanding)
+</script>

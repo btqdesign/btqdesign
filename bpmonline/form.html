@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HTML5 SCSS Boilerplate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="assets/plugins/Modernizr/modernizr-2.8.3.min.js"></script>
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+    <header class="hero-area hero-area__formulario">
+    	<img src="assets/images/bg-header.png" class="bg-header" alt="">
+    	<div class="logo-content">
+    		<img src="assets/images/logo-toyota.svg" alt="">
+    	</div>
+    </header>
+
+	<section class="section formulario">
+		<div class="container">
+			<form>
+				<div class="row">
+				  	<div class="form-group clearfix">
+				  		<!-- Nombre -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="nombre" class="inp">
+			             		<input type="text" id="nombre" placeholder="&nbsp;">
+			             		<span class="label">Nombre |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				    	<!-- Apellido Paterno -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="paterno" class="inp">
+			             		<input type="text" id="paterno" placeholder="&nbsp;">
+			             		<span class="label">Apellido Paterno |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				    	<!-- Apellido Materno -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="materno" class="inp">
+			             		<input type="text" id="materno" placeholder="&nbsp;">
+			             		<span class="label">Apellido Materno |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				  	</div> <!-- form-group -->
+				</div><!-- row -->
+
+				<div class="row">
+				  	<div class="form-group clearfix">
+				  		<!-- Teléfono Móvil -->
+				    	<div class="col-xs-12 col-sm-4 group-input">
+				      		<label for="telefono" class="inp">
+			             		<input type="number" id="telefono" placeholder="&nbsp;">
+			             		<span class="label">Teléfono Móvil |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+
+				    	<!-- Correo Electrónico -->
+				    	<div class="col-xs-12 col-sm-5 group-input">
+				      		<label for="email" class="inp">
+			             		<input type="email" id="email" placeholder="&nbsp;">
+			             		<span class="label">Correo Electrónico |</span>
+			             		<span class="border"></span>
+	           				</label>
+				    	</div>
+				  	</div><!-- form-group -->
+				</div><!-- row -->
+
+				<!-- DROPDOWNS -->
+				<div class="row">
+					<div class="form-group form-group__dropdowns clearfix">
+						
+						<!-- Vehículo de Interés -->
+						<div class="col-xs-12 col-sm-3 group-input">
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<p class="label">Vehículo de Interés</p>
+								</div>
+								<div class="col-sm-12 col-md-7 no-padding-l">
+									<div class="btn-group dropdown">
+									    <button class="btn btn-gris" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ACCORD <i class="fas fa-caret-down"></i></button>
+
+									    <div class="dropdown-menu">
+									        <a class="dropdown-item" href="#">ACCORD</a>
+									        <a class="dropdown-item" href="#">AVANZA</a>
+									        <a class="dropdown-item" href="#">Avanza Cargo</a>
+									        <a class="dropdown-item" href="#">CAMRY</a>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div><!-- FIN Vehículo de Interés -->
+
+						<!-- ¿Qué área visita? -->
+						<div class="col-xs-12 col-sm-4 group-input">
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<p class="label">¿Qué área visita?</p>
+								</div>
+								<div class="col-sm-12 col-md-7 no-padding-l">
+									<div class="btn-group dropdown">
+									    <button class="btn btn-gris" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Caja <i class="fas fa-caret-down"></i></button>
+
+									    <div class="dropdown-menu">
+									        <a class="dropdown-item" href="#">Caja</a>
+									        <a class="dropdown-item" href="#">Crédito</a>
+									        <a class="dropdown-item" href="#">Facturas</a>
+									        <a class="dropdown-item" href="#">HYP</a>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div><!-- FIN ¿Qué área visita? -->
+
+						<!-- Asesor asignado -->
+						<div class="col-xs-12 col-sm-5 group-input">
+							<div class="row">
+								<div class="col-sm-12 col-md-5">
+									<p class="label">Asesor asignado</p>
+								</div>
+								<div class="col-sm-12 col-md-7 no-padding-l">
+									<div class="btn-group dropdown">
+									    <button class="btn btn-gris" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Basic dropdown <i class="fas fa-caret-down"></i></button>
+
+									    <div class="dropdown-menu">
+									        <a class="dropdown-item" href="#">Aidee Noemy Aceves Meneces</a>
+									        <a class="dropdown-item" href="#">Bernardo Beguerisse Demongin</a>
+									        <a class="dropdown-item" href="#">Carlos Cruz Tovar</a>
+									    </div>
+									</div>
+								</div>
+							</div>
+						</div><!-- FIN Asesor asignado -->
+
+					</div>
+				</div><!-- DROPDOWNS -->
+				<div class="row button-group">
+					<div class="col-sm-4 hidden-mb"></div>
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-red">Enviar</button>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="logo-footer">
+					<img src="assets/images/logo-toyota-bottom.svg" alt="">
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+    <script src="assets/plugins/jquery/jquery-1.11.2.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/main.js"></script>
+</body>
+
+</html>

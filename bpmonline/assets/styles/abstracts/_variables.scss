@@ -1,0 +1,41 @@
+// Base colors
+$body-color: #333;
+$rojo: #D71921;
+$gris: #E5E5E5;
+$gris-btn: #FAFAFA;
+
+// Font sizes
+$base-font-size: 14px;
+
+$font-lato: 'Lato', sans-serif;
+
+
+/// Light grey
+/// @type Color
+$light-grey: rgb(237, 237, 237) !default;
+
+/// Medium grey
+/// @type Color
+$mid-grey: rgba(148,148,148,0.7) !default;
+
+/// Dark grey
+/// @type Color
+$dark-grey: rgba(148,148,148,1) !default;
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$assets-dir: 'assets/' !default;
+$images-dir: 'assets/images/' !default;
+$plugins-dir: 'assets/images/' !default;
+
+
+/// RESPONSIVE
+$break-xsmall: 320px;
+$break-inter: 550px;
+$break-small: 768px;
+$break-medium: 920px;
+$break-large: 1200px;

@@ -1,0 +1,36 @@
+.btn-group{
+	width: 100%;
+}
+.btn{
+	width: 100%;
+	font-weight: 300;
+	border-radius: 0;
+	&.btn-gris {
+		color: $mid-grey;
+		text-align: left;
+		background-color: $gris-btn;
+    	@include mboxshadow(2);
+    	i{
+		    text-align: right;
+			float: right;
+			padding-top: 3px;
+    	}
+    }
+    &.btn-red{
+		background-color: $rojo;
+		color: white;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		position:relative;
+		transition: all .6 ease-out;
+		&:hover{
+			@include mboxshadow(3);
+			top: -2px;
+		}
+	}
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: none;
+    outline-offset: none;
+}

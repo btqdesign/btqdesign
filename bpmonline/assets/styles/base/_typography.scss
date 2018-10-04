@@ -1,0 +1,29 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $mid-grey;
+  font-family: $font-lato;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $base-font-size;
+}
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+p{
+	color: $dark-grey;
+}
+h1, h2, h3, h4, h5, h6{
+  color: $mid-grey;
+  font-family: $font-lato;
+  font-style: normal;
+  font-weight: 700;
+}
+
+dd {
+    margin-left: 25px;
+}

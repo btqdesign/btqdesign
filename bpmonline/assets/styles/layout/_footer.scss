@@ -1,0 +1,20 @@
+footer{
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    padding-bottom: 30px;
+    border-top: 1px solid $mid-grey;
+	.container{
+		width: 80%;
+		.logo-footer {
+		    text-align: right;
+    		padding: 10px 0 0;
+		    img {
+			    width: 30%;
+			    @media screen and (min-width: $break-small) {
+			    	max-width: 120px;
+			    }
+			}
+		}
+	}
+}
