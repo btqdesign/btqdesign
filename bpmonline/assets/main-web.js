@@ -53,7 +53,7 @@ var config = {
         "Email":              "#email",
         "UsrLineaSolicitada": "#usr_linea_solicitada"
     },
-    landingId: "b3e9790b-b03d-4bcd-9e53-e531e8444ca6",
+    landingId: "109c5f65-9fb0-4a02-bc0c-d808a89ea244",
     serviceUrl: "https://ioa.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
     redirectUrl: "https://test.btqdesign.com/bpmonline/recibido.html"
 };
