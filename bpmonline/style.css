@@ -2305,9 +2305,21 @@ footer {
 
 /*# sourceMappingURL=style.css.map */
 
+@media screen and (max-width: 320px) {
+  .btn-icon {
+    font-size: 130px;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -40px;
+  }
+}
+
+
 @media screen and (max-width: 480px) {
   .btn-icon {
-    font-size: 120px;
+    font-size: 190px;
     line-height: 0;
     margin: 0;
     padding: 0;
@@ -2329,7 +2341,7 @@ footer {
 
 @media screen and (min-width: 768px) {
   .btn-icon {
-    font-size: 120px;
+    font-size: 90px;
     line-height: 0;
     margin: 0;
     padding: 0;
@@ -2340,7 +2352,7 @@ footer {
 
 @media screen and (min-width: 920px) {
   .btn-icon {
-    font-size: 120px;
+    font-size: 100px;
     line-height: 0;
     margin: 0;
     padding: 0;
@@ -2351,7 +2363,7 @@ footer {
 
 @media screen and (min-width: 1200px) {
   .btn-icon {
-    font-size: 120px;
+    font-size: 180px;
     line-height: 0;
     margin: 0;
     padding: 0;
